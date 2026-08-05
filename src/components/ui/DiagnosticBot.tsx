@@ -38,7 +38,31 @@ const steps: Step[] = [
     message: '¿Desde qué país nos contactas?',
     type: 'options',
     field: 'pais_codigo',
-    options: ['Colombia +57', 'México +52', 'Perú +51', 'Argentina +54', 'Chile +56', 'Venezuela +58', 'Otro'],
+    options: [
+      'Argentina +54',
+      'Bolivia +591',
+      'Brasil +55',
+      'Chile +56',
+      'Colombia +57',
+      'Costa Rica +506',
+      'Cuba +53',
+      'Ecuador +593',
+      'El Salvador +503',
+      'España +34',
+      'Estados Unidos +1',
+      'Guatemala +502',
+      'Honduras +504',
+      'México +52',
+      'Nicaragua +505',
+      'Panamá +507',
+      'Paraguay +595',
+      'Perú +51',
+      'Puerto Rico +1',
+      'Rep. Dominicana +1',
+      'Uruguay +598',
+      'Venezuela +58',
+      'Otro',
+    ],
   },
   {
     id: 'whatsapp',
@@ -135,9 +159,9 @@ export default function DiagnosticBot() {
       // Construir link wa.me desde código de país + número local
       const paisRaw = String(data.pais_codigo || 'Colombia +57');
       const codeMatch = paisRaw.match(/\+?(\d+)\s*$/);
-      const code = codeMatch ? codeMatch[1] : '57';
+      const code = codeMatch ? codeMatch[1] : '';
       const numero = String(data.whatsapp_numero || '').replace(/\D/g, '');
-      const whatsapp = numero ? `https://wa.me/${code}${numero}` : '';
+      const whatsapp = numero && code ? `https://wa.me/${code}${numero}` : numero;
 
       const payload = { ...data, whatsapp };
       delete payload.pais_codigo;
