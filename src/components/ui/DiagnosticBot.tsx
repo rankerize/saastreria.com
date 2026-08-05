@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 type Step = {
   id: string;
   message: string;
-  type: 'text' | 'options' | 'multi' | 'calendar';
+  type: 'text' | 'email' | 'tel' | 'options' | 'multi' | 'calendar';
   options?: string[];
   field: string;
 };
@@ -17,15 +17,27 @@ const steps: Step[] = [
   },
   {
     id: 'empresa',
-    message: 'Mucho gusto, {nombre}. ¿En qué empresa trabajas y cuál es tu rol?',
+    message: 'Mucho gusto, {nombre}. ¿En qué empresa trabajas?',
     type: 'text',
     field: 'empresa',
   },
   {
-    id: 'email',
-    message: '¿Cuál es tu email corporativo y tu WhatsApp? (para enviarte la confirmación de la cita)',
+    id: 'cargo',
+    message: '¿Cuál es tu cargo?',
     type: 'text',
-    field: 'contacto',
+    field: 'cargo',
+  },
+  {
+    id: 'email',
+    message: '¿Cuál es tu email corporativo?',
+    type: 'email',
+    field: 'email',
+  },
+  {
+    id: 'whatsapp',
+    message: '¿Y tu WhatsApp? (con código de país, ej: +57 300 123 4567)',
+    type: 'tel',
+    field: 'whatsapp',
   },
   {
     id: 'desafio',
@@ -256,14 +268,14 @@ export default function DiagnosticBot() {
       {/* Input area */}
       {!done && (
         <div className="p-3 border-t border-white/5 bg-[#0A0A0F]">
-          {currentStep?.type === 'text' && (
+          {(currentStep?.type === 'text' || currentStep?.type === 'email' || currentStep?.type === 'tel') && (
             <div className="flex gap-2">
               <input
-                type="text"
+                type={currentStep.type === 'email' ? 'email' : currentStep.type === 'tel' ? 'tel' : 'text'}
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 onKeyDown={e => e.key === 'Enter' && handleText()}
-                placeholder="Escribe tu respuesta..."
+                placeholder={currentStep.type === 'email' ? 'tu@empresa.com' : currentStep.type === 'tel' ? '+57 300 000 0000' : 'Escribe tu respuesta...'}
                 aria-label="Escribe tu respuesta"
                 className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-[#475569] outline-none focus:border-[#6366F1]/50 transition-colors"
               />
