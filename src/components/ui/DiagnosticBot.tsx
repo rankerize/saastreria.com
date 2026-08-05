@@ -34,10 +34,17 @@ const steps: Step[] = [
     field: 'email',
   },
   {
+    id: 'pais',
+    message: '¿Desde qué país nos contactas?',
+    type: 'options',
+    field: 'pais_codigo',
+    options: ['Colombia +57', 'México +52', 'Perú +51', 'Argentina +54', 'Chile +56', 'Venezuela +58', 'Otro'],
+  },
+  {
     id: 'whatsapp',
-    message: '¿Y tu WhatsApp? (con código de país, ej: +57 300 123 4567)',
+    message: '¿Tu número de WhatsApp? (sin código de país, sin espacios)\nEj: 3001234567',
     type: 'tel',
-    field: 'whatsapp',
+    field: 'whatsapp_numero',
   },
   {
     id: 'desafio',
@@ -125,11 +132,22 @@ export default function DiagnosticBot() {
     if (!SHEETS_URL) return;
     setSending(true);
     try {
+      // Construir link wa.me desde código de país + número local
+      const paisRaw = String(data.pais_codigo || 'Colombia +57');
+      const codeMatch = paisRaw.match(/\+?(\d+)\s*$/);
+      const code = codeMatch ? codeMatch[1] : '57';
+      const numero = String(data.whatsapp_numero || '').replace(/\D/g, '');
+      const whatsapp = numero ? `https://wa.me/${code}${numero}` : '';
+
+      const payload = { ...data, whatsapp };
+      delete payload.pais_codigo;
+      delete payload.whatsapp_numero;
+
       await fetch(SHEETS_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
     } catch (_) {
       // fallo silencioso — el lead ya fue capturado visualmente

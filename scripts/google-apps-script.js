@@ -12,18 +12,13 @@ function doPost(e) {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var data = JSON.parse(e.postData.contents);
 
-    // Forzar formato texto en Email (col 5) y WhatsApp (col 6)
-    // para que el +57 no se interprete como fórmula
-    var nextRow = sheet.getLastRow() + 1;
-    sheet.getRange(nextRow, 5, 1, 2).setNumberFormat('@');
-
     sheet.appendRow([
       new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' }),
       data.nombre      || '',
       data.empresa     || '',
       data.cargo       || '',
       data.email       || '',
-      data.whatsapp    || '',
+      data.whatsapp    || '',   // llega como https://wa.me/57XXXXXXXXXX — clickeable
       Array.isArray(data.desafio) ? data.desafio.join(', ') : (data.desafio || ''),
       data.sector      || '',
       data.equipo      || '',
@@ -51,7 +46,7 @@ function testPost() {
         empresa: 'TechCorp SAS',
         cargo: 'VP de Producto',
         email: 'ana@techcorp.co',
-        whatsapp: '+57 310 456 7890',
+        whatsapp: 'https://wa.me/573104567890',
         desafio: ['Implementar IA en mis procesos', 'Integrar sistemas (ERP, CRM, etc.)'],
         sector: 'Tecnología / SaaS',
         equipo: '6 – 20',
