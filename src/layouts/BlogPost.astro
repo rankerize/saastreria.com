@@ -1,0 +1,124 @@
+---
+import Base from './Base.astro';
+import Navbar from '../components/sections/Navbar.astro';
+import Footer from '../components/sections/Footer.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, author, image, tags } = post.data;
+
+const formattedDate = pubDate.toLocaleDateString('es-CO', {
+  year: 'numeric', month: 'long', day: 'numeric'
+});
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "image": image ? `https://saastreria.com${image}` : "https://saastreria.com/og-image.png",
+  "datePublished": pubDate.toISOString(),
+  "author": {
+    "@type": "Organization",
+    "name": author,
+    "@id": "https://saastreria.com/#organization"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Saastreria",
+    "logo": { "@type": "ImageObject", "url": "https://saastreria.com/og-image.png" },
+    "@id": "https://saastreria.com/#organization"
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": `https://saastreria.com/blog/${post.id}` },
+  "keywords": tags.join(", "),
+  "inLanguage": "es-CO",
+  "isPartOf": { "@id": "https://saastreria.com/#website" }
+};
+---
+
+<Base
+  title={`${title} | Blog Saastreria`}
+  description={description}
+  ogType="article"
+  ogImage={image || '/og-image.png'}
+  canonical={`https://saastreria.com/blog/${post.id}`}
+  pubDate={pubDate.toISOString()}
+  author={author}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <Navbar />
+
+  <main class="pt-24 pb-20 px-6">
+    <div class="max-w-3xl mx-auto">
+
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-xs text-[#475569] mb-8">
+        <a href="/" class="hover:text-[#94A3B8] transition-colors">Inicio</a>
+        <span>/</span>
+        <a href="/blog" class="hover:text-[#94A3B8] transition-colors">Blog</a>
+        <span>/</span>
+        <span class="text-[#94A3B8]">{title.slice(0, 40)}...</span>
+      </nav>
+
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-2 mb-6">
+        {tags.map(tag => (
+          <span class="px-2 py-0.5 rounded-full border border-[#6366F1]/30 bg-[#6366F1]/10 text-[#6366F1] text-xs">
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      <!-- Title -->
+      <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+        {title}
+      </h1>
+
+      <!-- Meta -->
+      <div class="flex items-center gap-4 text-sm text-[#475569] mb-10 pb-8 border-b border-white/5">
+        <span>{author}</span>
+        <span>·</span>
+        <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+      </div>
+
+      <!-- Content -->
+      <article class="prose prose-invert prose-lg max-w-none
+        prose-headings:font-bold prose-headings:text-white
+        prose-p:text-[#94A3B8] prose-p:leading-relaxed
+        prose-a:text-[#6366F1] prose-a:no-underline hover:prose-a:underline
+        prose-strong:text-white
+        prose-code:text-[#F59E0B] prose-code:bg-white/5 prose-code:px-1 prose-code:rounded
+        prose-pre:bg-[#111118] prose-pre:border prose-pre:border-white/10
+        prose-blockquote:border-l-[#6366F1] prose-blockquote:text-[#94A3B8]
+        prose-table:text-sm
+        prose-th:text-white prose-th:bg-white/5
+        prose-td:text-[#94A3B8]
+        prose-hr:border-white/10">
+        <slot />
+      </article>
+
+      <!-- CTA al final -->
+      <div class="mt-16 p-8 glass rounded-2xl text-center">
+        <p class="text-lg font-bold mb-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          ¿Quieres implementar esto en tu empresa?
+        </p>
+        <p class="text-[#94A3B8] text-sm mb-6">
+          Agenda un diagnóstico gratuito de 30 minutos con uno de nuestros ingenieros.
+        </p>
+        <a
+          href="/#diagnostico"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#6366F1] hover:bg-[#4F46E5] text-white font-semibold text-sm transition-all"
+        >
+          Hablar con un ingeniero
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Base>

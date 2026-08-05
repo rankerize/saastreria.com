@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://saastreria.com/sitemap-index.xml
+
+# Bloquear rutas de sistema
+Disallow: /404

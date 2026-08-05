@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Navbar from '../../components/sections/Navbar.astro';
+import Footer from '../../components/sections/Footer.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Base
+  title="Blog — Ingeniería de IA y Datos para Empresas | Saastreria"
+  description="Artículos técnicos sobre RAG enterprise, modernización de software legacy, Text-to-SQL, LLMOps y data engineering para empresas en Colombia y LATAM."
+  canonical="https://saastreria.com/blog"
+>
+  <Navbar />
+
+  <main class="pt-24 pb-20 px-6">
+    <div class="max-w-4xl mx-auto">
+
+      <div class="mb-16 text-center">
+        <span class="inline-block px-3 py-1 rounded-full border border-[#6366F1]/30 bg-[#6366F1]/10 text-[#6366F1] text-xs font-medium mb-4">
+          Blog técnico
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-bold mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          Ingeniería de IA para empresas
+        </h1>
+        <p class="text-[#94A3B8] max-w-xl mx-auto">
+          Guías prácticas, casos de estudio y análisis técnico para CTOs y equipos de data en LATAM.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        {posts.map(post => (
+          <a href={`/blog/${post.id}`} class="block glass rounded-2xl p-6 hover:border-[#6366F1]/30 transition-all hover:-translate-y-0.5 group">
+            <div class="flex flex-wrap gap-2 mb-3">
+              {post.data.tags.slice(0, 3).map(tag => (
+                <span class="px-2 py-0.5 rounded-full bg-white/5 text-[#475569] text-xs">{tag}</span>
+              ))}
+            </div>
+            <h2 class="text-lg font-bold text-white group-hover:text-[#6366F1] transition-colors mb-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+              {post.data.title}
+            </h2>
+            <p class="text-sm text-[#94A3B8] leading-relaxed mb-4">{post.data.description}</p>
+            <div class="flex items-center gap-4 text-xs text-[#475569]">
+              <span>{post.data.author}</span>
+              <span>·</span>
+              <time datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Base>
