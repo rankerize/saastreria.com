@@ -1,32 +1,52 @@
 ---
+const path = Astro.url.pathname;
+const links = [
+  { href: '/soluciones/', label: 'Soluciones' },
+  { href: '/industrias/', label: 'Industrias' },
+  { href: '/productos/', label: 'Productos' },
+  { href: '/como-trabajamos/', label: 'Cómo trabajamos' },
+  { href: '/blog/', label: 'Blog' },
+];
 ---
-<header class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#0A0A0F]/80 backdrop-blur-md">
-  <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-2 group">
-      <span class="text-xl font-bold" style="font-family: 'Plus Jakarta Sans', sans-serif;">
-        <span class="text-[#6366F1]">Saas</span><span class="text-[#F59E0B]">treria</span>
-      </span>
+
+<header class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#0A0A0F]/90 backdrop-blur-xl">
+  <nav class="max-w-7xl mx-auto px-5 sm:px-6 h-16 flex items-center justify-between" aria-label="Navegación principal">
+    <a href="/" class="flex items-center gap-2 min-h-11" aria-label="Saastreria, inicio">
+      <span class="text-xl font-bold font-heading"><span class="text-[#818CF8]">Saas</span><span class="text-[#F59E0B]">treria</span></span>
     </a>
 
-    <div class="hidden md:flex items-center gap-8 text-sm text-[#94A3B8]">
-      <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
-      <a href="#productos" class="hover:text-white transition-colors">Productos</a>
-      <a href="#verticales" class="hover:text-white transition-colors">Sectores</a>
-      <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+    <div class="hidden lg:flex items-center gap-7 text-sm text-[#A9B6CA]">
+      {links.map((link) => (
+        <a href={link.href} aria-current={path.startsWith(link.href) ? 'page' : undefined} class:list={['nav-link', path.startsWith(link.href) && 'text-white']}>{link.label}</a>
+      ))}
     </div>
 
-    <a
-      href="#diagnostico"
-      class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#6366F1] hover:bg-[#4F46E5] text-white text-sm font-medium transition-all hover:shadow-[0_0_20px_rgba(99,102,241,0.4)]"
-    >
-      Diagnóstico gratuito
-    </a>
+    <a href="/diagnostico/" class="hidden lg:inline-flex btn-primary text-sm px-4 py-2.5">Solicitar diagnóstico</a>
 
-    <!-- Mobile menu toggle placeholder -->
-    <button class="md:hidden text-[#94A3B8] hover:text-white p-2">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
+    <button id="menu-toggle" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg text-[#A9B6CA] hover:text-white hover:bg-white/5" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+      <svg class="menu-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg class="menu-close hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 6 12 12M18 6 6 18"/></svg>
     </button>
   </nav>
+
+  <div id="mobile-menu" class="lg:hidden hidden border-t border-white/5 bg-[#0A0A0F] px-5 py-5">
+    <div class="flex flex-col gap-1">
+      {links.map((link) => <a href={link.href} class="min-h-12 flex items-center rounded-lg px-3 text-[#CBD5E1] hover:bg-white/5 hover:text-white">{link.label}</a>)}
+      <a href="/nosotros/" class="min-h-12 flex items-center rounded-lg px-3 text-[#CBD5E1] hover:bg-white/5 hover:text-white">Nosotros</a>
+      <a href="/diagnostico/" class="btn-primary mt-3 w-full">Solicitar diagnóstico</a>
+    </div>
+  </div>
 </header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('#menu-toggle');
+  const menu = document.querySelector<HTMLElement>('#mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    toggle.setAttribute('aria-label', open ? 'Abrir menú' : 'Cerrar menú');
+    menu?.classList.toggle('hidden');
+    toggle.querySelector('.menu-open')?.classList.toggle('hidden');
+    toggle.querySelector('.menu-close')?.classList.toggle('hidden');
+  });
+</script>

@@ -10,179 +10,103 @@ interface Props {
   pubDate?: string;
   author?: string;
   noindex?: boolean;
+  schemas?: Record<string, unknown>[];
 }
 
+const SITE = 'https://saastreria.cloud';
 const {
-  title = 'Saastreria — Ingeniería de IA y Datos a Medida para Empresas',
-  description = 'Firma de ingeniería de IA y datos para empresas en LATAM. RAG enterprise, Text-to-SQL, modernización legacy y data pipelines — con velocidad de agentes.',
-  ogImage = '/og-image.png',
+  title = 'Saastreria | Software, datos y automatización empresarial',
+  description = 'Diseñamos software, automatizaciones y soluciones de datos a la medida para transformar procesos empresariales en Colombia y LATAM.',
+  ogImage = '/og.png',
   ogType = 'website',
-  canonical = Astro.url.href,
+  canonical = Astro.url.pathname,
   pubDate,
   author = 'Equipo Saastreria',
   noindex = false,
+  schemas = [],
 } = Astro.props;
 
-const canonicalURL = canonical.startsWith('http') ? canonical : `https://saastreria.cloud${canonical}`;
-const ogImageURL = ogImage.startsWith('http') ? ogImage : `https://saastreria.cloud${ogImage}`;
+const canonicalURL = canonical.startsWith('http') ? canonical : new URL(canonical, SITE).href;
+const ogImageURL = ogImage.startsWith('http') ? ogImage : new URL(ogImage, SITE).href;
 
-// Schema Organization completo con dirección Bogotá
 const orgSchema = {
-  "@context": "https://schema.org",
-  "@type": ["Organization", "SoftwareCompany"],
-  "@id": "https://saastreria.cloud/#organization",
-  "name": "Saastreria",
-  "legalName": "Saastreria SAS",
-  "url": "https://saastreria.cloud",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://saastreria.cloud/og-image.png",
-    "width": 1200,
-    "height": 630
-  },
-  "description": "Firma de ingeniería de IA y datos para empresas en Colombia y LATAM. RAG enterprise, Text-to-SQL, modernización de software legacy y data pipelines.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Calle 134 #11-48",
-    "addressLocality": "Bogotá",
-    "addressRegion": "Cundinamarca",
-    "postalCode": "110111",
-    "addressCountry": "CO"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 4.6910,
-    "longitude": -74.0374
-  },
-  "contactPoint": [
-    {
-      "@type": "ContactPoint",
-      "contactType": "customer service",
-      "email": "hola@saastreria.cloud",
-      "availableLanguage": ["Spanish"],
-      "areaServed": ["CO", "MX", "LATAM"]
-    }
-  ],
-  "areaServed": [
-    { "@type": "Country", "name": "Colombia" },
-    { "@type": "Country", "name": "México" },
-    { "@type": "GeoCircle", "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 4.711, "longitude": -74.0721 }, "geoRadius": "5000000" }
-  ],
-  "foundingDate": "2024",
-  "numberOfEmployees": { "@type": "QuantitativeValue", "value": 14 },
-  "knowsAbout": [
-    "Inteligencia Artificial Empresarial",
-    "RAG Enterprise",
-    "Text-to-SQL",
-    "Data Engineering",
-    "LLMOps",
-    "Modernización de Software Legacy",
-    "Edge AI",
-    "Seguridad Informática"
-  ],
-  "sameAs": [
-    "https://github.com/rankerize/saastreria.cloud"
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Servicios de Ingeniería de IA",
-    "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enterprise RAG & Big Data Engine", "description": "Sistemas RAG conectados a Data Lakes y Warehouses con permisos granulares" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Intelligence Agéntico", "description": "Text-to-SQL sobre petabytes de datos en lenguaje natural" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ingeniería de datos asistida por IA", "description": "Células de ingeniería senior para acelerar análisis, desarrollo, pruebas y documentación" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "LLMOps para IA Regulada", "description": "Infraestructura con guardrails para Banca, Salud y Seguros" } },
-      { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "Saastreria SST", "applicationCategory": "BusinessApplication", "description": "Software SGSST para cumplimiento normativo colombiano" } },
-      { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "DocFlow", "applicationCategory": "BusinessApplication", "description": "Sistema de gestión documental empresarial" } }
-    ]
-  }
+  '@context': 'https://schema.org',
+  '@type': ['Organization', 'SoftwareCompany'],
+  '@id': `${SITE}/#organization`,
+  name: 'Saastreria',
+  url: SITE,
+  logo: `${SITE}/og.png`,
+  email: 'hola@saastreria.cloud',
+  description: 'Empresa de software, datos, automatización e inteligencia artificial aplicada a procesos empresariales.',
+  areaServed: ['Colombia', 'LATAM'],
+  knowsAbout: ['Software empresarial', 'Automatización de procesos', 'Ingeniería de datos', 'Inteligencia artificial empresarial', 'Modernización de software'],
 };
 
-// Website schema para sitelinks search
 const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": "https://saastreria.cloud/#website",
-  "url": "https://saastreria.cloud",
-  "name": "Saastreria",
-  "description": "Firma de ingeniería de IA y datos para empresas en LATAM",
-  "inLanguage": "es-CO",
-  "publisher": { "@id": "https://saastreria.cloud/#organization" }
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE}/#website`,
+  url: SITE,
+  name: 'Saastreria',
+  inLanguage: 'es-CO',
+  publisher: { '@id': `${SITE}/#organization` },
 };
 
-// Breadcrumb para páginas internas
-const webPageSchema = {
-  "@context": "https://schema.org",
-  "@type": ogType === 'article' ? "BlogPosting" : "WebPage",
-  "@id": `${canonicalURL}#webpage`,
-  "url": canonicalURL,
-  "name": title,
-  "description": description,
-  "isPartOf": { "@id": "https://saastreria.cloud/#website" },
-  "publisher": { "@id": "https://saastreria.cloud/#organization" },
-  ...(pubDate ? {
-    "datePublished": pubDate,
-    "author": { "@type": "Organization", "name": author }
-  } : {}),
-  "inLanguage": "es-CO"
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@type': ogType === 'article' ? 'BlogPosting' : 'WebPage',
+  '@id': `${canonicalURL}#webpage`,
+  url: canonicalURL,
+  name: title,
+  description,
+  isPartOf: { '@id': `${SITE}/#website` },
+  publisher: { '@id': `${SITE}/#organization` },
+  inLanguage: 'es-CO',
+  ...(pubDate ? { datePublished: pubDate, author: { '@type': 'Organization', name: author } } : {}),
 };
 ---
 
 <!DOCTYPE html>
 <html lang="es-CO">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="generator" content={Astro.generator} />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
+    <meta name="author" content={author} />
+    <meta name="theme-color" content="#0A0A0F" />
 
-  <!-- SEO básico -->
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  <link rel="canonical" href={canonicalURL} />
-  {noindex && <meta name="robots" content="noindex, nofollow" />}
-  <meta name="author" content={author} />
-  <meta name="language" content="es-CO" />
-  <meta name="geo.region" content="CO-DC" />
-  <meta name="geo.placename" content="Bogotá" />
-  <meta name="geo.position" content="4.6910;-74.0374" />
-  <meta name="ICBM" content="4.6910, -74.0374" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Saastreria" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`Saastreria — ${title}`} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="es_CO" />
+    {pubDate && <meta property="article:published_time" content={pubDate} />}
 
-  <!-- Open Graph -->
-  <meta property="og:type" content={ogType} />
-  <meta property="og:site_name" content="Saastreria" />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image" content={ogImageURL} />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content={title} />
-  <meta property="og:url" content={canonicalURL} />
-  <meta property="og:locale" content="es_CO" />
-  {pubDate && <meta property="article:published_time" content={pubDate} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
 
-  <!-- Twitter / X Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@saastreria" />
-  <meta name="twitter:creator" content="@saastreria" />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={ogImageURL} />
-  <meta name="twitter:image:alt" content={title} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-  <!-- Preconnect fuentes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <!-- Schema JSON-LD -->
-  <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
-</head>
-<body class="bg-[#0A0A0F] text-[#F8FAFC] antialiased">
-  <slot />
-</body>
+    {[orgSchema, websiteSchema, pageSchema, ...schemas].map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
+  </head>
+  <body class="bg-[#0A0A0F] text-[#F8FAFC] antialiased">
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+    <slot />
+  </body>
 </html>

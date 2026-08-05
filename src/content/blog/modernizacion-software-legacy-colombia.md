@@ -1,10 +1,10 @@
 ---
 title: "Modernización de software legacy en Colombia: cómo salir del monolito sin parar la operación"
-description: "Guía práctica para empresas colombianas que necesitan migrar sistemas COBOL, Java EE o PHP a microservicios modernos sin detener su operación. Casos reales y tiempos con IA."
+description: "Guía práctica para empresas colombianas que necesitan modernizar sistemas COBOL, Java EE o PHP sin detener su operación."
 pubDate: 2026-07-28
 author: "Equipo Saastreria"
 tags: ["legacy", "microservicios", "Colombia", "modernización", "Java"]
-image: "/blog/modernizacion-legacy.png"
+image: "/og.png"
 ---
 
 ## El costo oculto del software legacy

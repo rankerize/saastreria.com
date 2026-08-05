@@ -1,0 +1,4 @@
+---
+import Base from '../layouts/Base.astro'; import Navbar from '../components/sections/Navbar.astro'; import Footer from '../components/sections/Footer.astro';
+---
+<Base title="Página no encontrada | Saastreria" description="La página solicitada no existe." canonical="/404/" noindex={true}><Navbar /><main id="contenido" class="min-h-[75vh] pt-36 pb-24 flex items-center"><div class="section-shell text-center"><span class="text-[#818CF8] font-mono">404</span><h1 class="mt-4 text-4xl sm:text-6xl font-extrabold">Esta página no existe</h1><p class="mt-5 text-[#A9B6CA]">Puedes regresar al inicio o explorar nuestras soluciones.</p><div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center"><a href="/" class="btn-primary">Ir al inicio</a><a href="/soluciones/" class="btn-secondary">Ver soluciones</a></div></div></main><Footer /></Base>

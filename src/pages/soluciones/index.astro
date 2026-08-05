@@ -1,0 +1,6 @@
+---
+import HubPage from '../../components/HubPage.astro';
+import { solutionPages } from '../../data/commercial-pages';
+const pillars = solutionPages.filter((page) => !page.slug.includes('/')).map((page) => ({ title: page.eyebrow, description: page.description, href: `/soluciones/${page.slug}/` }));
+---
+<HubPage eyebrow="Soluciones" title="Tecnología construida alrededor de tu empresa" description="Combinamos software, datos, automatización e inteligencia artificial para resolver procesos empresariales completos." seoTitle="Soluciones de software, datos e IA | Saastreria" canonical="/soluciones/" cards={pillars} />

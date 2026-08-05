@@ -4,7 +4,7 @@ description: "Explicamos qué es Retrieval-Augmented Generation (RAG) a escala e
 pubDate: 2026-07-15
 author: "Equipo Saastreria"
 tags: ["RAG", "IA empresarial", "Big Data", "Colombia"]
-image: "/blog/rag-enterprise.png"
+image: "/og.png"
 ---
 
 ## El problema que RAG resuelve
@@ -43,7 +43,7 @@ RAG Enterprise es una inversión justificada cuando:
 - Tus decisiones dependen de datos históricos que tardan horas en consolidarse
 - Operas en sectores regulados (banca, salud, seguros) donde la trazabilidad es obligatoria
 
-## Cómo lo implementamos en Saastreria
+## Cómo lo implementaríamos en Saastreria
 
 Nuestro proceso en 4 semanas:
 
@@ -51,10 +51,10 @@ Nuestro proceso en 4 semanas:
 
 **Semana 2 — Pipeline de indexación:** construimos el pipeline que convierte tus datos en embeddings y los mantiene actualizados.
 
-**Semana 3 — Motor de consulta:** implementamos el RAG con evaluaciones de calidad, groundedness checks y latencia medida.
+**Semana 3 — Motor de consulta:** implementamos el RAG con evaluaciones de calidad, comprobaciones de respaldo en fuentes y latencia medida.
 
 **Semana 4 — Interfaz y entrega:** panel de consulta, permisos por rol y transferencia de conocimiento al equipo interno.
 
 ---
 
-¿Quieres saber si RAG Enterprise tiene sentido para tu empresa? [Agenda un diagnóstico gratuito de 30 minutos](/en#diagnostico).
+¿Quieres saber si RAG Enterprise tiene sentido para tu empresa? [Solicita un diagnóstico inicial](/diagnostico/).

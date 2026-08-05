@@ -1,0 +1,6 @@
+---
+import HubPage from '../../components/HubPage.astro';
+import { industryPages } from '../../data/commercial-pages';
+const cards = industryPages.map((page) => ({ title: page.eyebrow, description: page.description, href: `/industrias/${page.slug}/` }));
+---
+<HubPage eyebrow="Industrias" title="Soluciones adaptadas a la operación de cada sector" description="Aplicamos capacidades de software, datos, automatización e IA según los procesos, riesgos y responsabilidades de cada industria." seoTitle="Soluciones tecnológicas por industria | Saastreria" canonical="/industrias/" cards={cards} />

@@ -1,0 +1,7 @@
+---
+import CommercialPage from '../../components/CommercialPage.astro';
+import { industryPages } from '../../data/commercial-pages';
+export function getStaticPaths() { return industryPages.map((page) => ({ params: { slug: page.slug }, props: { page } })); }
+const { page } = Astro.props;
+---
+<CommercialPage page={page} canonicalPath={`/industrias/${page.slug}/`} />

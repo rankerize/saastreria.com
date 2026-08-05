@@ -5,7 +5,7 @@ export const services = [
     description: 'Centralizamos información dispersa y la convertimos en conocimiento confiable para consultar, analizar y tomar decisiones con seguridad.',
     capabilities: ['Enterprise RAG', 'BI agéntico', 'Text-to-SQL', 'Pipelines de datos'],
     badge: 'Decisiones con datos',
-    href: '#diagnostico',
+    href: '/soluciones/datos-inteligencia-empresarial/',
   },
   {
     icon: 'refresh-cw',
@@ -13,7 +13,7 @@ export const services = [
     description: 'Actualizamos software antiguo, conectamos aplicaciones y construimos plataformas internas adaptadas a la operación real de tu empresa.',
     capabilities: ['Software a medida', 'Modernización legacy', 'Integración ERP', 'Middleware'],
     badge: 'Operación conectada',
-    href: '#diagnostico',
+    href: '/soluciones/modernizacion-integracion-sistemas/',
   },
   {
     icon: 'zap',
@@ -21,7 +21,7 @@ export const services = [
     description: 'Diseñamos sistemas y agentes que ejecutan procesos completos, reducen tareas repetitivas y mantienen a los equipos en control.',
     capabilities: ['Agentes empresariales', 'Flujos automatizados', 'Edge AI e IoT', 'Procesamiento en tiempo real'],
     badge: 'Procesos inteligentes',
-    href: '#diagnostico',
+    href: '/soluciones/automatizacion-empresarial/',
   },
   {
     icon: 'shield-check',
@@ -29,7 +29,7 @@ export const services = [
     description: 'Implementamos inteligencia artificial con permisos, trazabilidad, observabilidad y control de costos para operar de forma confiable.',
     capabilities: ['Seguridad y guardrails', 'LLMOps', 'Gobierno de datos', 'AI Cost Ops'],
     badge: 'Control y confianza',
-    href: '#diagnostico',
+    href: '/soluciones/ia-segura-eficiente/',
   },
 ];
 
@@ -37,7 +37,7 @@ export const products = [
   {
     name: 'Saastreria SST',
     tagline: 'Control SGSST para empresas colombianas',
-    description: 'Software para gestión del Sistema de Seguridad y Salud en el Trabajo. Cumplimiento normativo, auditable y listo para inspecciones del Ministerio.',
+    description: 'Software para organizar la gestión del Sistema de Seguridad y Salud en el Trabajo, con responsables, documentos, actividades e indicadores.',
     features: [
       'Cumplimiento resolución 0312 de 2019',
       'Gestión de incidentes y accidentes',
@@ -45,7 +45,8 @@ export const products = [
       'Multi-empresa y multi-sede',
     ],
     cta: 'Solicitar demo',
-    badge: 'Disponible ahora',
+    badge: 'Solución configurable',
+    href: '/productos/saastreria-sst/',
   },
   {
     name: 'DocFlow',
@@ -58,17 +59,17 @@ export const products = [
       'Integración con Google Drive y OneDrive',
     ],
     cta: 'Solicitar demo',
-    badge: 'Disponible ahora',
+    badge: 'Solución configurable',
+    href: '/productos/docflow/',
   },
 ];
 
 export const verticals = [
-  { name: 'Fintech', icon: '💳' },
-  { name: 'Banca', icon: '🏦' },
-  { name: 'Salud', icon: '🏥' },
-  { name: 'Logística', icon: '📦' },
-  { name: 'Manufactura', icon: '⚙️' },
-  { name: 'Energía', icon: '⚡' },
+  { name: 'Logística', href: '/industrias/logistica/' },
+  { name: 'Manufactura', href: '/industrias/manufactura/' },
+  { name: 'Servicios empresariales', href: '/industrias/servicios-empresariales/' },
+  { name: 'Salud y SST', href: '/industrias/salud-y-sst/' },
+  { name: 'Finanzas y seguros', href: '/industrias/finanzas-y-seguros/' },
 ];
 
 export const faqs = [
@@ -78,7 +79,7 @@ export const faqs = [
   },
   {
     q: '¿Cuánto tiempo tarda implementar un sistema RAG sobre nuestros datos?',
-    a: 'Un RAG conectado a un Data Warehouse existente (BigQuery, Snowflake) tarda entre 4 y 8 semanas en producción, incluyendo permisos granulares, evaluaciones de calidad y panel de observabilidad.',
+    a: 'El tiempo depende del número y calidad de las fuentes, los permisos, las integraciones y el nivel de evaluación requerido. Después del diagnóstico proponemos un primer alcance con criterios de aceptación claros.',
   },
   {
     q: '¿Trabajan con empresas que ya tienen equipo técnico interno?',
@@ -86,7 +87,7 @@ export const faqs = [
   },
   {
     q: '¿Tienen experiencia con normativas colombianas (SST, protección de datos)?',
-    a: 'Sí. Tenemos productos propios bajo cumplimiento de la Resolución 0312 de 2019 y la Ley 1581 de 2012 (habeas data). También asesoramos en marcos internacionales como SOC 2 e ISO 27001.',
+    a: 'Diseñamos controles de acceso, trazabilidad y manejo de datos según el proceso y los requisitos aplicables. Cuando se requiere una certificación o interpretación jurídica, trabajamos con los responsables legales y de cumplimiento del cliente.',
   },
   {
     q: '¿Cuáles son las modalidades de contratación?',
@@ -94,6 +95,6 @@ export const faqs = [
   },
   {
     q: '¿Atienden solo Colombia o también el resto de LATAM?',
-    a: 'Tenemos clientes en Colombia, México y centroamérica. Trabajamos 100% remoto con equipos distribuidos. El diagnóstico y las reuniones se hacen en español con contexto local de cada mercado.',
+    a: 'Atendemos proyectos en Colombia y podemos trabajar de forma remota con organizaciones de LATAM. El alcance considera el contexto operativo y los requisitos del país donde se utilizará la solución.',
   },
 ];

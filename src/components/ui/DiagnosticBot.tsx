@@ -144,7 +144,7 @@ export default function DiagnosticBot() {
       // Última pregunta contestada — enviar a Sheets y mostrar cierre
       msgs.push({
         from: 'bot',
-        text: `¡Perfecto, ${String(newLead.nombre || '').split(' ')[0]}! 🎉 Ya guardamos tu información.\n\nUn ingeniero te contactará en las próximas horas al email o WhatsApp que nos diste para coordinar el diagnóstico gratuito.\n\n¿Tienes algo más que quieras contarnos antes de la llamada?`,
+        text: `Perfecto, ${String(newLead.nombre || '').split(' ')[0]}. Recibimos tu información.\n\nNuestro equipo revisará el contexto y te contactará al correo o WhatsApp que compartiste para coordinar el diagnóstico inicial.\n\n¿Hay algo más que debamos conocer antes de la conversación?`,
       });
       setMessages(msgs);
       setDone(true);
@@ -174,21 +174,23 @@ export default function DiagnosticBot() {
     return (
       <button
         onClick={() => setOpen(true)}
-        class="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-[#6366F1] hover:bg-[#4F46E5] text-white font-semibold shadow-[0_0_30px_rgba(99,102,241,0.5)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_40px_rgba(99,102,241,0.6)]"
+        data-bot
+        aria-label="Abrir asistente de diagnóstico"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-3 min-w-12 min-h-12 px-3.5 sm:px-5 rounded-2xl bg-[#6366F1] hover:bg-[#4F46E5] text-white font-semibold shadow-[0_0_30px_rgba(99,102,241,0.4)] transition-colors"
         style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
       >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
         </svg>
-        Habla con un ingeniero
+        <span className="hidden sm:inline">Habla con un ingeniero</span>
         <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
       </button>
     );
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] rounded-2xl overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.5)] flex flex-col"
-         style={{ height: '560px', background: '#111118', border: '1px solid rgba(255,255,255,0.08)' }}>
+    <div role="dialog" aria-modal="false" aria-label="Asistente de diagnóstico Saastreria" className="fixed bottom-3 right-3 sm:bottom-6 sm:right-6 z-50 w-[380px] max-w-[calc(100vw-1.5rem)] rounded-2xl overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.5)] flex flex-col"
+         style={{ height: 'min(560px, calc(100dvh - 5rem))', background: '#111118', border: '1px solid rgba(255,255,255,0.08)' }}>
 
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-white/5 bg-[#0A0A0F]">
@@ -206,7 +208,7 @@ export default function DiagnosticBot() {
             </p>
           </div>
         </div>
-        <button onClick={() => setOpen(false)} className="text-[#475569] hover:text-white p-1 transition-colors">
+        <button onClick={() => setOpen(false)} aria-label="Cerrar asistente" className="text-[#94A3B8] hover:text-white w-11 h-11 flex items-center justify-center transition-colors">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M18 6L6 18M6 6l12 12"/>
           </svg>
@@ -262,11 +264,13 @@ export default function DiagnosticBot() {
                 onChange={e => setInput(e.target.value)}
                 onKeyDown={e => e.key === 'Enter' && handleText()}
                 placeholder="Escribe tu respuesta..."
+                aria-label="Escribe tu respuesta"
                 className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-[#475569] outline-none focus:border-[#6366F1]/50 transition-colors"
               />
               <button
                 onClick={handleText}
-                className="w-10 h-10 rounded-xl bg-[#6366F1] hover:bg-[#4F46E5] flex items-center justify-center transition-colors flex-shrink-0"
+                aria-label="Enviar respuesta"
+                className="w-11 h-11 rounded-xl bg-[#6366F1] hover:bg-[#4F46E5] flex items-center justify-center transition-colors flex-shrink-0"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7"/>

@@ -1,0 +1,13 @@
+---
+import Base from '../../layouts/Base.astro';
+import Navbar from '../../components/sections/Navbar.astro';
+import Footer from '../../components/sections/Footer.astro';
+import LeadForm from '../../components/LeadForm.astro';
+const description = 'Solicita un diagnóstico para identificar oportunidades de software, datos, automatización e inteligencia artificial en tu empresa.';
+const schema = { '@context': 'https://schema.org', '@type': 'ContactPage', name: 'Diagnóstico empresarial Saastreria', url: 'https://saastreria.cloud/diagnostico/', description };
+---
+<Base title="Diagnóstico empresarial | Saastreria" description={description} canonical="/diagnostico/" schemas={[schema]}>
+  <Navbar />
+  <main id="contenido" class="pt-32 pb-24 bg-grid min-h-screen"><div class="section-shell grid lg:grid-cols-[.8fr_1.2fr] gap-14 items-start"><div class="lg:sticky lg:top-28"><span class="eyebrow">Diagnóstico inicial</span><h1 class="mt-6 text-4xl sm:text-5xl font-extrabold leading-tight">Entendamos el proceso antes de hablar de tecnología</h1><p class="mt-6 text-lg text-[#A9B6CA] leading-relaxed">Cuéntanos qué quieres mejorar. Revisaremos el contexto y prepararemos una conversación útil, sin obligarte a llegar con una solución técnica definida.</p><div class="mt-9 space-y-4">{['Identificamos el problema y los usuarios involucrados', 'Revisamos datos, sistemas y restricciones', 'Proponemos un primer punto de partida medible'].map((item) => <div class="flex gap-3 text-sm text-[#CBD5E1]"><span class="text-green-400">✓</span>{item}</div>)}</div></div><LeadForm /></div></main>
+  <Footer />
+</Base>

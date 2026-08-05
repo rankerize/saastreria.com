@@ -1,0 +1,136 @@
+---
+import Base from '../layouts/Base.astro';
+import Navbar from './sections/Navbar.astro';
+import Footer from './sections/Footer.astro';
+import type { CommercialPage as PageData } from '../data/commercial-pages';
+
+interface Props { page: PageData; canonicalPath: string; }
+const { page, canonicalPath } = Astro.props;
+const SITE = 'https://saastreria.cloud';
+const url = new URL(canonicalPath, SITE).href;
+const breadcrumbs = [
+  { name: 'Inicio', item: SITE },
+  { name: page.parentLabel, item: new URL(page.parentHref, SITE).href },
+  { name: page.eyebrow, item: url },
+];
+const schemas = [
+  {
+    '@context': 'https://schema.org', '@type': page.schemaType || 'Service', name: page.eyebrow,
+    description: page.description, url, provider: { '@id': `${SITE}/#organization` }, areaServed: ['Colombia', 'LATAM'],
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((item, index) => ({ '@type': 'ListItem', position: index + 1, ...item })),
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: page.faq.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })),
+  },
+];
+---
+
+<Base title={page.seoTitle} description={page.description} canonical={canonicalPath} schemas={schemas}>
+  <Navbar />
+  <main id="contenido">
+    <section class="relative overflow-hidden bg-grid pt-32 pb-20 sm:pt-40 sm:pb-28">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-40 right-[-12rem] w-[42rem] h-[42rem] rounded-full bg-[#6366F1]/10 blur-3xl"></div>
+      </div>
+      <div class="section-shell relative grid lg:grid-cols-[1.08fr_.92fr] gap-14 items-center">
+        <div class="reveal">
+          <nav aria-label="Migas de pan" class="mb-7 text-xs text-[#718096]">
+            <ol class="flex flex-wrap items-center gap-2"><li><a href="/" class="hover:text-white">Inicio</a></li><li aria-hidden="true">/</li><li><a href={page.parentHref} class="hover:text-white">{page.parentLabel}</a></li><li aria-hidden="true">/</li><li class="text-[#A9B6CA]">{page.eyebrow}</li></ol>
+          </nav>
+          <span class="eyebrow">{page.eyebrow}</span>
+          <h1 class="mt-6 text-4xl sm:text-5xl lg:text-[3.7rem] font-extrabold leading-[1.06] tracking-tight max-w-4xl">{page.title}</h1>
+          <p class="mt-6 text-lg sm:text-xl text-[#A9B6CA] leading-relaxed max-w-2xl">{page.description}</p>
+          <div class="mt-9 flex flex-col sm:flex-row gap-3">
+            <a href="/diagnostico/" class="btn-primary">Evaluar mi empresa</a>
+            <a href="#como-funciona" class="btn-secondary">Ver cómo funciona</a>
+          </div>
+          <p class="mt-5 text-xs text-[#718096]">Diagnóstico inicial · Alcance por etapas · Sin compromiso</p>
+        </div>
+
+        <div class="commercial-card p-5 sm:p-7 relative overflow-hidden" aria-label="Transformación de procesos">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#6366F1]/8 to-transparent pointer-events-none"></div>
+          <div class="relative">
+            <p class="text-xs uppercase tracking-[.16em] text-[#718096] mb-6">De operación dispersa a sistema integrado</p>
+            <div class="grid gap-3">
+              {page.pains.slice(0, 3).map((pain, index) => (
+                <div class="flex items-center gap-3 rounded-xl border border-white/7 bg-[#0A0A0F]/70 p-3.5">
+                  <span class="w-8 h-8 rounded-lg bg-white/5 text-[#64748B] flex items-center justify-center font-mono text-xs">0{index + 1}</span>
+                  <span class="text-sm text-[#94A3B8]">{pain}</span>
+                </div>
+              ))}
+            </div>
+            <div class="flex justify-center py-4 text-[#818CF8]" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v18m0 0 6-6m-6 6-6-6"/></svg>
+            </div>
+            <div class="rounded-2xl border border-[#6366F1]/30 bg-[#6366F1]/10 p-5">
+              <p class="text-sm font-bold text-white">{page.promise}</p>
+              <div class="mt-4 grid sm:grid-cols-2 gap-2">
+                {page.outcomes.slice(0, 4).map((outcome) => <span class="text-xs text-[#C7D2FE] flex gap-2"><span class="text-green-400" aria-hidden="true">✓</span>{outcome}</span>)}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 sm:py-28 bg-[#0D0D14]">
+      <div class="section-shell">
+        <div class="max-w-3xl"><span class="eyebrow">El problema</span><h2 class="mt-5 text-3xl sm:text-4xl font-bold">Señales de que necesitas esta solución</h2></div>
+        <div class="mt-10 grid md:grid-cols-3 gap-5">
+          {page.pains.map((pain, index) => <article class="commercial-card p-6"><span class="text-xs text-[#818CF8] font-mono">0{index + 1}</span><h3 class="mt-4 text-lg font-bold leading-snug">{pain}</h3></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 sm:py-28">
+      <div class="section-shell grid lg:grid-cols-[.85fr_1.15fr] gap-14">
+        <div><span class="eyebrow">Qué construimos</span><h2 class="mt-5 text-3xl sm:text-4xl font-bold">Capacidades combinadas alrededor del proceso</h2><p class="mt-5 text-[#A9B6CA] leading-relaxed">Seleccionamos únicamente las capacidades necesarias para obtener un resultado medible y mantenible.</p></div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {page.capabilities.map((capability) => <div class="commercial-card p-5 flex gap-3 items-center"><span class="w-9 h-9 rounded-lg bg-[#6366F1]/12 border border-[#6366F1]/20 flex items-center justify-center text-[#A5B4FC]" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 12 4 4L19 6"/></svg></span><span class="font-semibold text-sm">{capability}</span></div>)}
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="py-20 sm:py-28 bg-[#0D0D14] scroll-mt-20">
+      <div class="section-shell">
+        <div class="max-w-3xl"><span class="eyebrow">Nuestro método</span><h2 class="mt-5 text-3xl sm:text-4xl font-bold">De la conversación inicial a una solución que evoluciona</h2></div>
+        <ol class="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {page.process.map((step, index) => <li class="commercial-card p-6"><span class="text-2xl font-bold gradient-text">0{index + 1}</span><h3 class="mt-5 font-bold text-lg">{step.title}</h3><p class="mt-3 text-sm text-[#94A3B8] leading-relaxed">{step.description}</p></li>)}
+        </ol>
+      </div>
+    </section>
+
+    <section class="py-20 sm:py-28">
+      <div class="section-shell">
+        <div class="text-center max-w-3xl mx-auto"><span class="eyebrow">Aplicaciones</span><h2 class="mt-5 text-3xl sm:text-4xl font-bold">Casos de uso que aterrizan la tecnología</h2></div>
+        <div class="mt-12 grid md:grid-cols-3 gap-5">
+          {page.useCases.map((item) => <article class="commercial-card p-6"><div class="w-11 h-11 rounded-xl bg-[#F59E0B]/10 border border-[#F59E0B]/20 flex items-center justify-center text-[#FBBF24]" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14M8 7h8M8 11h8M8 15h5"/></svg></div><h3 class="mt-5 text-lg font-bold">{item.title}</h3><p class="mt-3 text-sm text-[#94A3B8] leading-relaxed">{item.description}</p></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 sm:py-28 bg-[#0D0D14]">
+      <div class="section-shell grid lg:grid-cols-[.72fr_1.28fr] gap-14">
+        <div><span class="eyebrow">Preguntas frecuentes</span><h2 class="mt-5 text-3xl sm:text-4xl font-bold">Lo que conviene aclarar antes de comenzar</h2></div>
+        <div class="space-y-3">
+          {page.faq.map((item, index) => <details class="commercial-card group" open={index === 0}><summary class="min-h-14 cursor-pointer list-none flex items-center justify-between gap-4 p-5 font-bold"><span>{item.q}</span><span class="text-[#818CF8] text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span></summary><p class="px-5 pb-5 text-sm text-[#A9B6CA] leading-relaxed">{item.a}</p></details>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20">
+      <div class="section-shell">
+        <div class="commercial-card p-8 sm:p-12 bg-gradient-to-br from-[#6366F1]/15 via-white/[.03] to-[#F59E0B]/8 text-center">
+          <span class="eyebrow">Siguiente paso</span><h2 class="mt-5 text-3xl sm:text-4xl font-bold">Empecemos por entender tu operación</h2><p class="mt-4 text-[#A9B6CA] max-w-2xl mx-auto">En una conversación inicial identificamos el proceso, las fuentes de información y el mejor punto de partida.</p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center"><a href="/diagnostico/" class="btn-primary">Solicitar diagnóstico</a><a href="mailto:hola@saastreria.cloud" class="btn-secondary">Escribir por correo</a></div>
+        </div>
+        {page.related.length > 0 && <div class="mt-12"><h2 class="text-xl font-bold">También puede interesarte</h2><div class="mt-5 flex flex-wrap gap-3">{page.related.map((item) => <a href={item.href} class="btn-secondary text-sm">{item.label}<span aria-hidden="true">→</span></a>)}</div></div>}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>

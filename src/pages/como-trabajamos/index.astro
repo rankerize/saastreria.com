@@ -1,0 +1,13 @@
+---
+import Base from '../../layouts/Base.astro'; import Navbar from '../../components/sections/Navbar.astro'; import Footer from '../../components/sections/Footer.astro';
+const steps = [
+  ['Descubrimiento', 'Entrevistamos a responsables y usuarios, documentamos el proceso actual y localizamos fricción, riesgo y oportunidades.'],
+  ['Diseño', 'Definimos la solución, los límites, la arquitectura, los indicadores y un primer módulo que pueda demostrar valor.'],
+  ['Implementación', 'Construimos por etapas, validamos con usuarios reales e integramos con los sistemas existentes.'],
+  ['Adopción', 'Acompañamos capacitación, documentación, soporte y medición para que la solución se utilice correctamente.'],
+  ['Evolución', 'Priorizamos mejoras, seguridad, costos y nuevas automatizaciones a partir de resultados.'],
+];
+---
+<Base title="Cómo trabajamos | Método Saastreria" description="Conoce el proceso de diagnóstico, diseño, implementación e integración que usamos para construir soluciones empresariales a medida." canonical="/como-trabajamos/">
+  <Navbar /><main id="contenido"><section class="pt-36 pb-20 bg-grid"><div class="section-shell max-w-5xl"><span class="eyebrow">Nuestro método</span><h1 class="mt-6 text-4xl sm:text-6xl font-extrabold leading-tight">Primero entendemos tu empresa. Después construimos la solución.</h1><p class="mt-6 text-xl text-[#A9B6CA] max-w-3xl leading-relaxed">La tecnología correcta aparece cuando comprendemos el proceso, las personas, los datos y las restricciones reales.</p></div></section><section class="py-20 sm:py-28 bg-[#0D0D14]"><div class="section-shell"><ol class="grid gap-5">{steps.map((step, index) => <li class="commercial-card p-6 sm:p-8 grid sm:grid-cols-[90px_1fr] gap-5"><span class="text-3xl font-extrabold gradient-text">0{index + 1}</span><div><h2 class="text-2xl font-bold">{step[0]}</h2><p class="mt-3 text-[#A9B6CA] leading-relaxed max-w-3xl">{step[1]}</p></div></li>)}</ol></div></section><section class="py-20"><div class="section-shell text-center"><h2 class="text-3xl sm:text-4xl font-bold">El resultado no es solo software</h2><p class="mt-4 text-[#A9B6CA] max-w-2xl mx-auto">Es un proceso más claro, información más confiable y un equipo con mayor control sobre la operación.</p><a href="/diagnostico/" class="btn-primary mt-8">Iniciar diagnóstico</a></div></section></main><Footer />
+</Base>

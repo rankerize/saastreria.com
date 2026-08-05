@@ -76,12 +76,12 @@
 
         <div class="space-y-4">
           {[
-            { icon: '⚡', title: 'Implementación progresiva', desc: 'Construimos primero un módulo útil y medible, y lo ampliamos con evidencia.' },
-            { icon: '🔍', title: 'Transparencia total', desc: 'Cada decisión de arquitectura, seguridad e integración queda documentada.' },
-            { icon: '🤝', title: 'Acompañamiento continuo', desc: 'La solución evoluciona junto con los procesos y el equipo de tu empresa.' },
+            { icon: '01', title: 'Implementación progresiva', desc: 'Construimos primero un módulo útil y medible, y lo ampliamos con evidencia.' },
+            { icon: '02', title: 'Transparencia total', desc: 'Cada decisión de arquitectura, seguridad e integración queda documentada.' },
+            { icon: '03', title: 'Acompañamiento continuo', desc: 'La solución evoluciona junto con los procesos y el equipo de tu empresa.' },
           ].map(item => (
             <div class="flex gap-4">
-              <span class="text-xl flex-shrink-0">{item.icon}</span>
+              <span class="w-9 h-9 rounded-lg border border-[#6366F1]/30 bg-[#6366F1]/10 text-[#A5B4FC] text-xs font-mono flex items-center justify-center flex-shrink-0" aria-hidden="true">{item.icon}</span>
               <div>
                 <p class="font-semibold text-sm text-white" style="font-family: 'Plus Jakarta Sans', sans-serif;">{item.title}</p>
                 <p class="text-sm text-[#94A3B8] mt-0.5">{item.desc}</p>

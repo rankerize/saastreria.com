@@ -1,0 +1,6 @@
+---
+import HubPage from '../../components/HubPage.astro';
+import { productPages } from '../../data/commercial-pages';
+const cards = productPages.map((page) => ({ title: page.eyebrow, description: page.description, href: `/productos/${page.slug}/` }));
+---
+<HubPage eyebrow="Productos" title="Plataformas listas para organizar procesos críticos" description="Productos empresariales que reúnen control, trazabilidad y automatización en experiencias claras para los equipos." seoTitle="Productos de software empresarial | Saastreria" canonical="/productos/" cards={cards} />
