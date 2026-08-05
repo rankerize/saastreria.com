@@ -23,20 +23,20 @@ const {
   noindex = false,
 } = Astro.props;
 
-const canonicalURL = canonical.startsWith('http') ? canonical : `https://saastreria.com${canonical}`;
-const ogImageURL = ogImage.startsWith('http') ? ogImage : `https://saastreria.com${ogImage}`;
+const canonicalURL = canonical.startsWith('http') ? canonical : `https://saastreria.cloud${canonical}`;
+const ogImageURL = ogImage.startsWith('http') ? ogImage : `https://saastreria.cloud${ogImage}`;
 
 // Schema Organization completo con dirección Bogotá
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": ["Organization", "SoftwareCompany"],
-  "@id": "https://saastreria.com/#organization",
+  "@id": "https://saastreria.cloud/#organization",
   "name": "Saastreria",
   "legalName": "Saastreria SAS",
-  "url": "https://saastreria.com",
+  "url": "https://saastreria.cloud",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://saastreria.com/og-image.png",
+    "url": "https://saastreria.cloud/og-image.png",
     "width": 1200,
     "height": 630
   },
@@ -58,7 +58,7 @@ const orgSchema = {
     {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "email": "hola@saastreria.com",
+      "email": "hola@saastreria.cloud",
       "availableLanguage": ["Spanish"],
       "areaServed": ["CO", "MX", "LATAM"]
     }
@@ -81,7 +81,7 @@ const orgSchema = {
     "Seguridad Informática"
   ],
   "sameAs": [
-    "https://github.com/rankerize/saastreria.com"
+    "https://github.com/rankerize/saastreria.cloud"
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -89,7 +89,7 @@ const orgSchema = {
     "itemListElement": [
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enterprise RAG & Big Data Engine", "description": "Sistemas RAG conectados a Data Lakes y Warehouses con permisos granulares" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Intelligence Agéntico", "description": "Text-to-SQL sobre petabytes de datos en lenguaje natural" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agentic Data Engineering", "description": "Células donde 1 ingeniero + IA = output de 3 tradicionales" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ingeniería de datos asistida por IA", "description": "Células de ingeniería senior para acelerar análisis, desarrollo, pruebas y documentación" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "LLMOps para IA Regulada", "description": "Infraestructura con guardrails para Banca, Salud y Seguros" } },
       { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "Saastreria SST", "applicationCategory": "BusinessApplication", "description": "Software SGSST para cumplimiento normativo colombiano" } },
       { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "DocFlow", "applicationCategory": "BusinessApplication", "description": "Sistema de gestión documental empresarial" } }
@@ -101,12 +101,12 @@ const orgSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://saastreria.com/#website",
-  "url": "https://saastreria.com",
+  "@id": "https://saastreria.cloud/#website",
+  "url": "https://saastreria.cloud",
   "name": "Saastreria",
   "description": "Firma de ingeniería de IA y datos para empresas en LATAM",
   "inLanguage": "es-CO",
-  "publisher": { "@id": "https://saastreria.com/#organization" }
+  "publisher": { "@id": "https://saastreria.cloud/#organization" }
 };
 
 // Breadcrumb para páginas internas
@@ -117,8 +117,8 @@ const webPageSchema = {
   "url": canonicalURL,
   "name": title,
   "description": description,
-  "isPartOf": { "@id": "https://saastreria.com/#website" },
-  "publisher": { "@id": "https://saastreria.com/#organization" },
+  "isPartOf": { "@id": "https://saastreria.cloud/#website" },
+  "publisher": { "@id": "https://saastreria.cloud/#organization" },
   ...(pubDate ? {
     "datePublished": pubDate,
     "author": { "@type": "Organization", "name": author }

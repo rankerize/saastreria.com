@@ -20,23 +20,23 @@ const articleSchema = {
   "@type": "BlogPosting",
   "headline": title,
   "description": description,
-  "image": image ? `https://saastreria.com${image}` : "https://saastreria.com/og-image.png",
+  "image": image ? `https://saastreria.cloud${image}` : "https://saastreria.cloud/og-image.png",
   "datePublished": pubDate.toISOString(),
   "author": {
     "@type": "Organization",
     "name": author,
-    "@id": "https://saastreria.com/#organization"
+    "@id": "https://saastreria.cloud/#organization"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Saastreria",
-    "logo": { "@type": "ImageObject", "url": "https://saastreria.com/og-image.png" },
-    "@id": "https://saastreria.com/#organization"
+    "logo": { "@type": "ImageObject", "url": "https://saastreria.cloud/og-image.png" },
+    "@id": "https://saastreria.cloud/#organization"
   },
-  "mainEntityOfPage": { "@type": "WebPage", "@id": `https://saastreria.com/blog/${post.id}` },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": `https://saastreria.cloud/blog/${post.id}` },
   "keywords": tags.join(", "),
   "inLanguage": "es-CO",
-  "isPartOf": { "@id": "https://saastreria.com/#website" }
+  "isPartOf": { "@id": "https://saastreria.cloud/#website" }
 };
 ---
 
@@ -45,7 +45,7 @@ const articleSchema = {
   description={description}
   ogType="article"
   ogImage={image || '/og-image.png'}
-  canonical={`https://saastreria.com/blog/${post.id}`}
+  canonical={`https://saastreria.cloud/blog/${post.id}`}
   pubDate={pubDate.toISOString()}
   author={author}
 >

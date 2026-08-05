@@ -9,7 +9,7 @@ image: "/blog/modernizacion-legacy.png"
 
 ## El costo oculto del software legacy
 
-En Colombia, el 60% de las empresas medianas y grandes operan sobre sistemas que tienen más de 10 años. No es un problema de negligencia — es que esos sistemas **funcionan**, y nadie quiere tocar lo que funciona.
+Muchas empresas medianas y grandes en Colombia todavía dependen de sistemas que llevan años sosteniendo su operación. No es un problema de negligencia: esos sistemas **funcionan**, y reemplazarlos sin una estrategia adecuada puede representar un riesgo considerable.
 
 Pero hay un costo oculto que se acumula silenciosamente:
 
@@ -41,7 +41,7 @@ Sistema legacy ←→ API Gateway ←→ Microservicio nuevo (módulo 1)
 
 La operación no para en ningún momento.
 
-## Cómo la IA acelera el proceso 3x
+## Cómo la IA puede acelerar el proceso
 
 Con Claude Code y herramientas de análisis estático, automatizamos las partes más lentas de la modernización:
 
@@ -50,8 +50,8 @@ Con Claude Code y herramientas de análisis estático, automatizamos las partes 
 3. **Traducción asistida** de módulos COBOL/Java EE a TypeScript/Go
 4. **Documentación automática** — cada función documentada al migrar
 
-Un proyecto que tomaría 18 meses con un equipo tradicional, con nuestra célula agéntica toma 5–7 meses.
+El impacto depende del estado del sistema, la cobertura de pruebas, la documentación disponible y la complejidad de las integraciones. Por eso comenzamos con una auditoría técnica y definimos una migración progresiva con resultados medibles por módulo.
 
 ---
 
-¿Tu empresa opera sobre un sistema que necesita modernizarse? [Habla con un ingeniero](/en#diagnostico) — la primera conversación es gratis.
+¿Tu empresa opera sobre un sistema que necesita modernizarse? [Habla con un ingeniero](/#diagnostico) — la primera conversación es gratis.
