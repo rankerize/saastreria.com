@@ -1,25 +1,34 @@
-// Pegar esto en Google Apps Script (Extensiones → Apps Script)
-// Luego: Implementar → Nueva implementación → Aplicación web
-// Ejecutar como: Yo | Quién tiene acceso: Cualquier persona
-// Copia la URL y pégala en VITE_SHEETS_URL del .env
+// ============================================================
+// INSTRUCCIONES:
+// 1. Abre la hoja → Extensiones → Apps Script
+// 2. Borra TODO lo que hay y pega este archivo completo
+// 3. Implementar → Administrar implementaciones → lápiz (editar)
+//    → Versión: Nueva versión → Implementar
+// 4. La URL NO cambia — no necesitas actualizar nada en Hostinger
+// ============================================================
 
 function doPost(e) {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var data = JSON.parse(e.postData.contents);
 
+    // Forzar formato texto en Email (col 5) y WhatsApp (col 6)
+    // para que el +57 no se interprete como fórmula
+    var nextRow = sheet.getLastRow() + 1;
+    sheet.getRange(nextRow, 5, 1, 2).setNumberFormat('@');
+
     sheet.appendRow([
       new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' }),
-      data.nombre    || '',
-      data.empresa   || '',
-      data.cargo     || '',
-      data.email     || '',
-      data.whatsapp  || '',
+      data.nombre      || '',
+      data.empresa     || '',
+      data.cargo       || '',
+      data.email       || '',
+      data.whatsapp    || '',
       Array.isArray(data.desafio) ? data.desafio.join(', ') : (data.desafio || ''),
-      data.sector    || '',
-      data.equipo    || '',
+      data.sector      || '',
+      data.equipo      || '',
       data.presupuesto || '',
-      data.urgencia  || '',
+      data.urgencia    || '',
     ]);
 
     return ContentService
@@ -33,17 +42,18 @@ function doPost(e) {
   }
 }
 
-// Para probar manualmente desde el editor:
+// Para probar manualmente desde el editor (Ejecutar → testPost):
 function testPost() {
   var fake = {
     postData: {
       contents: JSON.stringify({
-        nombre: 'Carlos Rodríguez',
-        empresa: 'Empresa Test — CTO',
-        email: 'carlos@test.com',
-        whatsapp: '+57 300 000 0000',
-        desafio: ['Implementar IA en mis procesos'],
-        sector: 'Fintech / Banca',
+        nombre: 'Ana Pérez',
+        empresa: 'TechCorp SAS',
+        cargo: 'VP de Producto',
+        email: 'ana@techcorp.co',
+        whatsapp: '+57 310 456 7890',
+        desafio: ['Implementar IA en mis procesos', 'Integrar sistemas (ERP, CRM, etc.)'],
+        sector: 'Tecnología / SaaS',
         equipo: '6 – 20',
         presupuesto: '$20K – $100K USD',
         urgencia: 'Próximo trimestre',
