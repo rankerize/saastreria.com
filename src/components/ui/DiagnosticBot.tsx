@@ -235,7 +235,7 @@ export default function DiagnosticBot() {
               {sending ? 'Guardando datos...' : 'Un ingeniero te contactará pronto para coordinar la llamada.'}
             </p>
             <a
-              href={`https://wa.me/57XXXXXXXXXX?text=Hola%2C%20acabo%20de%20completar%20el%20formulario%20de%20Saastreria`}
+              href={`https://wa.me/573007244122?text=Hola%2C%20acabo%20de%20completar%20el%20formulario%20de%20Saastreria`}
               target="_blank"
               rel="noopener"
               className="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-lg bg-green-600 hover:bg-green-700 text-white text-xs font-medium transition-colors"
