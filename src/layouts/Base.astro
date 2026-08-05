@@ -1,0 +1,57 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = 'Saastreria — Ingeniería de IA y Datos a Medida para Empresas',
+  description = 'Firma de ingeniería de IA y datos para empresas en LATAM. RAG enterprise, Text-to-SQL, modernización legacy y data pipelines — con velocidad de agentes.',
+  ogImage = '/og-image.png',
+} = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareCompany",
+  "name": "Saastreria",
+  "url": "https://saastreria.com",
+  "description": "Firma de ingeniería de IA y datos para empresas en Colombia y LATAM.",
+  "address": { "@type": "PostalAddress", "addressCountry": "CO" },
+  "areaServed": ["CO", "MX", "LATAM"],
+  "serviceType": ["AI Engineering", "Data Engineering", "RAG Systems", "Software Modernization", "LLMOps"]
+};
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href="https://saastreria.com/" />
+
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={`https://saastreria.com${ogImage}`} />
+  <meta property="og:url" content="https://saastreria.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CO" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</head>
+<body class="bg-[#0A0A0F] text-[#F8FAFC] antialiased">
+  <slot />
+</body>
+</html>
