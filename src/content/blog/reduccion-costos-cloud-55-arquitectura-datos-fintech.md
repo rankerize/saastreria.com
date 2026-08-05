@@ -4,7 +4,7 @@ description: "Escenario ilustrativo de auditoría y rediseño de infraestructura
 pubDate: 2026-08-04
 author: César Jiménez Arcia
 authorLinkedin: https://www.linkedin.com/in/cesar-jimenez-arcia/
-image: /blog/blog-cloud-fintech.png
+image: /og.png
 tags: ["Cloud Cost Optimization", "Fintech", "Arquitectura de Datos", "AWS", "Colombia", "Escenario ilustrativo"]
 draft: false
 ---

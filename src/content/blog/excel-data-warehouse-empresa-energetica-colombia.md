@@ -4,7 +4,7 @@ description: "Escenario ilustrativo para migrar información operativa desde hoj
 pubDate: 2026-08-04
 author: César Jiménez Arcia
 authorLinkedin: https://www.linkedin.com/in/cesar-jimenez-arcia/
-image: /blog/blog-excel-warehouse.png
+image: /og.png
 tags: ["Data Warehouse", "BigQuery", "Migración de Datos", "Energía", "Colombia", "Escenario ilustrativo"]
 draft: false
 ---

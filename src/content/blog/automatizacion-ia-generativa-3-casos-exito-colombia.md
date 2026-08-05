@@ -4,7 +4,7 @@ description: "Tres escenarios ilustrativos de IA generativa: propuestas comercia
 pubDate: 2026-08-04
 author: César Jiménez Arcia
 authorLinkedin: https://www.linkedin.com/in/cesar-jimenez-arcia/
-image: /blog/blog-automatizacion-casos.png
+image: /og.png
 tags: ["IA Generativa", "Automatización", "Colombia", "LLM", "Escenarios ilustrativos", "IA Empresarial"]
 draft: false
 ---

@@ -4,7 +4,7 @@ description: "Escenario ilustrativo de un sistema RAG para consultar contratos, 
 pubDate: 2026-08-02
 author: César Jiménez Arcia
 authorLinkedin: https://www.linkedin.com/in/cesar-jimenez-arcia/
-image: /blog/blog-chatbot-legal.png
+image: /og.png
 tags: ["RAG", "Legal Tech", "Chatbot", "Gestión Documental", "Colombia", "Escenario ilustrativo"]
 draft: false
 ---

@@ -11,7 +11,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 <Base
   title="Blog — Ingeniería de IA y Datos para Empresas | Saastreria"
   description="Artículos técnicos sobre RAG enterprise, modernización de software legacy, Text-to-SQL, LLMOps y data engineering para empresas en Colombia y LATAM."
-  canonical="https://saastreria.cloud/blog"
+  canonical="https://saastreria.cloud/blog/"
 >
   <Navbar />
 
@@ -32,7 +32,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 
       <div class="space-y-6">
         {posts.map(post => (
-          <a href={`/blog/${post.id}`} class="block glass rounded-2xl p-6 hover:border-[#6366F1]/30 transition-all hover:-translate-y-0.5 group">
+          <a href={`/blog/${post.id}/`} class="block glass rounded-2xl p-6 hover:border-[#6366F1]/30 transition-all hover:-translate-y-0.5 group">
             <div class="flex flex-wrap gap-2 mb-3">
               {post.data.tags.slice(0, 3).map(tag => (
                 <span class="px-2 py-0.5 rounded-full bg-white/5 text-[#475569] text-xs">{tag}</span>
