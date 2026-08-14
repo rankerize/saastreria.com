@@ -50,7 +50,7 @@ const row2 = [
   },
   {
     name: 'Vercel',
-    color: '#E2E8F0',
+    color: '#0F0F1A',
     svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 20h20L12 2z"/></svg>`
   },
   {
@@ -75,15 +75,14 @@ const row2 = [
   },
 ];
 
-// Duplicar para efecto infinito
 const allRow1 = [...row1, ...row1, ...row1];
 const allRow2 = [...row2, ...row2, ...row2];
 ---
 
-<section class="py-16 overflow-hidden relative" style="background: #0D0D14; border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04);">
+<section class="py-16 overflow-hidden relative" style="background: #F8FAFC; border-top: 1px solid rgba(0,0,0,0.06); border-bottom: 1px solid rgba(0,0,0,0.06);">
   <!-- Fade edges -->
-  <div class="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none" style="background: linear-gradient(90deg, #0D0D14 0%, transparent 100%);"></div>
-  <div class="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none" style="background: linear-gradient(270deg, #0D0D14 0%, transparent 100%);"></div>
+  <div class="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none" style="background: linear-gradient(90deg, #F8FAFC 0%, transparent 100%);"></div>
+  <div class="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none" style="background: linear-gradient(270deg, #F8FAFC 0%, transparent 100%);"></div>
 
   <div class="text-center mb-10 px-6">
     <span class="eyebrow">Integramos con tu ecosistema tecnológico</span>
@@ -93,9 +92,9 @@ const allRow2 = [...row2, ...row2, ...row2];
   <div class="marquee-wrapper mb-5 overflow-hidden">
     <div class="marquee-forward flex gap-6 w-max">
       {allRow1.map((tool) => (
-        <div class="flex items-center gap-2.5 px-5 py-3 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:border-white/[0.15] hover:bg-white/[0.05] transition-all cursor-default flex-shrink-0">
+        <div class="flex items-center gap-2.5 px-5 py-3 rounded-xl border bg-white hover:border-[rgba(0,0,0,0.18)] hover:shadow-sm transition-all cursor-default flex-shrink-0" style="border-color:rgba(0,0,0,0.09);">
           <span class="w-6 h-6 flex-shrink-0" style={`color: ${tool.color};`} set:html={tool.svg} />
-          <span class="text-sm font-medium text-[#94A3B8] whitespace-nowrap">{tool.name}</span>
+          <span class="text-sm font-medium text-[#374151] whitespace-nowrap">{tool.name}</span>
         </div>
       ))}
     </div>
@@ -105,9 +104,9 @@ const allRow2 = [...row2, ...row2, ...row2];
   <div class="marquee-wrapper overflow-hidden">
     <div class="marquee-reverse flex gap-6 w-max">
       {allRow2.map((tool) => (
-        <div class="flex items-center gap-2.5 px-5 py-3 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:border-white/[0.15] hover:bg-white/[0.05] transition-all cursor-default flex-shrink-0">
+        <div class="flex items-center gap-2.5 px-5 py-3 rounded-xl border bg-white hover:border-[rgba(0,0,0,0.18)] hover:shadow-sm transition-all cursor-default flex-shrink-0" style="border-color:rgba(0,0,0,0.09);">
           <span class="w-6 h-6 flex-shrink-0" style={`color: ${tool.color};`} set:html={tool.svg} />
-          <span class="text-sm font-medium text-[#94A3B8] whitespace-nowrap">{tool.name}</span>
+          <span class="text-sm font-medium text-[#374151] whitespace-nowrap">{tool.name}</span>
         </div>
       ))}
     </div>

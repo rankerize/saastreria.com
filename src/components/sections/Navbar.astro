@@ -9,30 +9,30 @@ const links = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#0A0A0F]/90 backdrop-blur-xl">
+<header class="fixed top-0 left-0 right-0 z-50 border-b bg-white/90 backdrop-blur-xl" style="border-color: rgba(0,0,0,0.07);">
   <nav class="max-w-7xl mx-auto px-5 sm:px-6 h-16 flex items-center justify-between" aria-label="Navegación principal">
     <a href="/" class="flex items-center gap-2 min-h-11" aria-label="Saastreria, inicio">
-      <span class="text-xl font-bold font-heading"><span class="text-[#818CF8]">Saas</span><span class="text-[#F59E0B]">treria</span></span>
+      <span class="text-xl font-bold font-heading"><span class="text-[#6366F1]">Saas</span><span class="text-[#F59E0B]">treria</span></span>
     </a>
 
-    <div class="hidden lg:flex items-center gap-7 text-sm text-[#A9B6CA]">
+    <div class="hidden lg:flex items-center gap-7 text-sm text-[#64748B]">
       {links.map((link) => (
-        <a href={link.href} aria-current={path.startsWith(link.href) ? 'page' : undefined} class:list={['nav-link', path.startsWith(link.href) && 'text-white']}>{link.label}</a>
+        <a href={link.href} aria-current={path.startsWith(link.href) ? 'page' : undefined} class:list={['nav-link text-[#64748B] hover:text-[#0F0F1A]', path.startsWith(link.href) && '!text-[#0F0F1A] font-medium']}>{link.label}</a>
       ))}
     </div>
 
     <a href="/diagnostico/" class="hidden lg:inline-flex btn-primary text-sm px-4 py-2.5">Solicitar diagnóstico</a>
 
-    <button id="menu-toggle" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg text-[#A9B6CA] hover:text-white hover:bg-white/5" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+    <button id="menu-toggle" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg text-[#64748B] hover:text-[#0F0F1A] hover:bg-black/5" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
       <svg class="menu-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       <svg class="menu-close hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 6 12 12M18 6 6 18"/></svg>
     </button>
   </nav>
 
-  <div id="mobile-menu" class="lg:hidden hidden border-t border-white/5 bg-[#0A0A0F] px-5 py-5">
+  <div id="mobile-menu" class="lg:hidden hidden border-t bg-white px-5 py-5" style="border-color: rgba(0,0,0,0.06);">
     <div class="flex flex-col gap-1">
-      {links.map((link) => <a href={link.href} class="min-h-12 flex items-center rounded-lg px-3 text-[#CBD5E1] hover:bg-white/5 hover:text-white">{link.label}</a>)}
-      <a href="/nosotros/" class="min-h-12 flex items-center rounded-lg px-3 text-[#CBD5E1] hover:bg-white/5 hover:text-white">Nosotros</a>
+      {links.map((link) => <a href={link.href} class="min-h-12 flex items-center rounded-lg px-3 text-[#64748B] hover:bg-black/[0.03] hover:text-[#0F0F1A]">{link.label}</a>)}
+      <a href="/nosotros/" class="min-h-12 flex items-center rounded-lg px-3 text-[#64748B] hover:bg-black/[0.03] hover:text-[#0F0F1A]">Nosotros</a>
       <a href="/diagnostico/" class="btn-primary mt-3 w-full">Solicitar diagnóstico</a>
     </div>
   </div>

@@ -54,12 +54,12 @@ const steps = [
 const stepsJson = JSON.stringify(steps);
 ---
 
-<section class="py-28 px-6 relative overflow-hidden" style="background:#0D0D1F;">
+<section class="py-28 px-6 relative overflow-hidden" style="background:#FFFFFF;">
 
-  <!-- Glow ambiental -->
+  <!-- Sutil decoración -->
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full opacity-60"
-         style="background:radial-gradient(ellipse,rgba(99,102,241,0.07) 0%,transparent 70%);"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] rounded-full"
+         style="background:radial-gradient(ellipse,rgba(99,102,241,0.05) 0%,transparent 70%);"></div>
   </div>
 
   <div class="max-w-6xl mx-auto relative z-10">
@@ -67,11 +67,11 @@ const stepsJson = JSON.stringify(steps);
     <!-- Header -->
     <div class="text-center mb-20 scroll-reveal">
       <span class="eyebrow mb-6">Nuestra metodología</span>
-      <h2 class="text-4xl sm:text-5xl font-extrabold mt-6 mb-5 leading-[1.1]" style="font-family:'Plus Jakarta Sans',sans-serif;">
+      <h2 class="text-4xl sm:text-5xl font-extrabold mt-6 mb-5 leading-[1.1]" style="font-family:'Plus Jakarta Sans',sans-serif;color:#0F0F1A;">
         Del diagnóstico al resultado.<br/>
         <span class="gradient-text">Un proceso claro y medible.</span>
       </h2>
-      <p class="text-[#94A3B8] max-w-xl mx-auto text-lg">
+      <p class="text-[#64748B] max-w-xl mx-auto text-lg">
         Seguimos siete pasos que transforman la operación. Nada de genéricos — cada fase se adapta al negocio real.
       </p>
     </div>
@@ -83,7 +83,7 @@ const stepsJson = JSON.stringify(steps);
       <div class="relative flex items-start justify-between mb-10 px-4" id="step-track">
 
         <!-- Línea de fondo -->
-        <div class="absolute left-[5%] right-[5%] h-0.5 rounded-full top-9 z-0" style="background:rgba(255,255,255,0.06);"></div>
+        <div class="absolute left-[5%] right-[5%] h-0.5 rounded-full top-9 z-0" style="background:rgba(0,0,0,0.07);"></div>
         <!-- Línea de progreso -->
         <div id="track-progress" class="absolute left-[5%] h-0.5 rounded-full top-9 z-0"
              style="width:0%;background:linear-gradient(90deg,#6366F1,#8B5CF6,#EC4899,#F59E0B,#10B981,#06B6D4,#818CF8);transition:width 0.6s cubic-bezier(0.16,1,0.3,1);"></div>
@@ -97,22 +97,19 @@ const stepsJson = JSON.stringify(steps);
           >
             <!-- Círculo -->
             <div
-              class="step-circle w-[68px] h-[68px] rounded-2xl flex flex-col items-center justify-center border-2 transition-all duration-500 relative mx-auto"
-              style={`background:${s.color}12;border-color:${s.color}30;`}
+              class="step-circle w-[68px] h-[68px] rounded-2xl flex flex-col items-center justify-center border-2 transition-all duration-500 relative mx-auto bg-white"
+              style={`border-color:${s.color}25;`}
               data-color={s.color}
             >
-              <!-- Número -->
-              <span class="text-[9px] font-black font-mono tracking-widest mb-1 opacity-50" style={`color:${s.color};`}>{s.n}</span>
-              <!-- Icono -->
+              <span class="text-[9px] font-black font-mono tracking-widest mb-1 opacity-40" style={`color:${s.color};`}>{s.n}</span>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                    stroke={s.color} stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
                    set:html={s.icon}/>
-              <!-- Anillo de glow (activo) -->
               <div class="step-ring absolute inset-0 rounded-2xl opacity-0 transition-all duration-500"
-                   style={`box-shadow:0 0 0 3px ${s.color}60, 0 0 30px ${s.color}40;`}></div>
+                   style={`box-shadow:0 0 0 3px ${s.color}50, 0 0 28px ${s.color}30;`}></div>
             </div>
             <!-- Título -->
-            <span class="step-label text-[11px] font-semibold transition-all duration-300 text-[#475569]"
+            <span class="step-label text-[11px] font-semibold transition-all duration-300 text-[#94A3B8]"
                   style="font-family:'Plus Jakarta Sans',sans-serif;">{s.title}</span>
           </button>
         ))}
@@ -120,18 +117,18 @@ const stepsJson = JSON.stringify(steps);
 
       <!-- Panel featured del paso activo -->
       <div class="relative rounded-3xl overflow-hidden" id="step-panel"
-           style="background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);">
+           style="background:#FAFBFF;border:1px solid rgba(99,102,241,0.1);box-shadow:0 4px 24px rgba(99,102,241,0.06);">
 
         <!-- Glow de color del paso activo -->
-        <div id="panel-glow" class="absolute inset-0 pointer-events-none transition-all duration-700 opacity-30"
-             style="background:radial-gradient(ellipse at 50% 0%,rgba(99,102,241,0.3) 0%,transparent 60%);"></div>
+        <div id="panel-glow" class="absolute inset-0 pointer-events-none transition-all duration-700 opacity-40"
+             style="background:radial-gradient(ellipse at 50% 0%,rgba(99,102,241,0.12) 0%,transparent 60%);"></div>
 
         <!-- Contenido animado -->
         <div id="step-content" class="relative z-10 p-10 sm:p-14 flex flex-col sm:flex-row gap-10 items-center">
 
           <!-- Icono grande -->
           <div id="panel-icon-wrap" class="flex-shrink-0 w-[96px] h-[96px] rounded-3xl flex items-center justify-center border-2 transition-all duration-700"
-               style="background:rgba(99,102,241,0.12);border-color:rgba(99,102,241,0.35);">
+               style="background:rgba(99,102,241,0.08);border-color:rgba(99,102,241,0.25);">
             <svg id="panel-icon" width="44" height="44" viewBox="0 0 24 24" fill="none"
                  stroke="#6366F1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
               <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
@@ -140,20 +137,18 @@ const stepsJson = JSON.stringify(steps);
 
           <!-- Texto -->
           <div class="flex-1 min-w-0">
-            <!-- Número + total -->
             <div class="flex items-center gap-3 mb-3">
               <span id="panel-num" class="text-xs font-black font-mono tracking-widest" style="color:#6366F1;">PASO 01 DE 07</span>
-              <!-- Dots navegación -->
               <div class="flex items-center gap-1.5 ml-auto" id="nav-dots">
                 {steps.map((_, i) => (
-                  <div class="nav-dot rounded-full transition-all duration-300" data-idx={i}
-                       style="width:6px;height:6px;background:rgba(255,255,255,0.15);"></div>
+                  <div class="nav-dot rounded-full transition-all duration-300 cursor-pointer" data-idx={i}
+                       style="width:6px;height:6px;background:rgba(0,0,0,0.1);"></div>
                 ))}
               </div>
             </div>
-            <h3 id="panel-title" class="text-3xl font-extrabold text-white mb-3"
+            <h3 id="panel-title" class="text-3xl font-extrabold text-[#0F0F1A] mb-3"
                 style="font-family:'Plus Jakarta Sans',sans-serif;">Diagnóstico</h3>
-            <p id="panel-desc" class="text-[#94A3B8] text-base leading-relaxed mb-4">
+            <p id="panel-desc" class="text-[#64748B] text-base leading-relaxed mb-4">
               Entendemos la operación, los sistemas y los objetivos reales del negocio antes de escribir una sola línea de código.
             </p>
             <p id="panel-detail" class="text-sm font-medium" style="color:#6366F1;">
@@ -163,17 +158,17 @@ const stepsJson = JSON.stringify(steps);
 
           <!-- Flechas nav -->
           <div class="flex flex-col gap-2 flex-shrink-0">
-            <button id="btn-prev" class="w-10 h-10 rounded-xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] flex items-center justify-center transition-all" aria-label="Paso anterior">
+            <button id="btn-prev" class="w-10 h-10 rounded-xl border bg-white hover:bg-[#F8FAFC] flex items-center justify-center transition-all text-[#374151]" style="border-color:rgba(0,0,0,0.1);" aria-label="Paso anterior">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 19l-7-7 7-7"/></svg>
             </button>
-            <button id="btn-next" class="w-10 h-10 rounded-xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] flex items-center justify-center transition-all" aria-label="Paso siguiente">
+            <button id="btn-next" class="w-10 h-10 rounded-xl border bg-white hover:bg-[#F8FAFC] flex items-center justify-center transition-all text-[#374151]" style="border-color:rgba(0,0,0,0.1);" aria-label="Paso siguiente">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5l7 7-7 7"/></svg>
             </button>
           </div>
         </div>
 
         <!-- Barra de progreso automática -->
-        <div class="h-0.5 w-full" style="background:rgba(255,255,255,0.05);">
+        <div class="h-0.5 w-full" style="background:rgba(0,0,0,0.05);">
           <div id="auto-progress" class="h-full rounded-full" style="width:0%;"></div>
         </div>
       </div>
@@ -181,9 +176,9 @@ const stepsJson = JSON.stringify(steps);
       <!-- Resultado -->
       <div class="flex justify-center mt-8">
         <div class="inline-flex items-center gap-3 px-6 py-3 rounded-2xl border"
-             style="background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.22);">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          <span class="text-sm font-semibold" style="color:#F59E0B;">Resultado: una operación integrada, medible y escalable</span>
+             style="background:rgba(245,158,11,0.06);border-color:rgba(245,158,11,0.2);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <span class="text-sm font-semibold" style="color:#D97706;">Resultado: una operación integrada, medible y escalable</span>
         </div>
       </div>
     </div>
@@ -195,13 +190,13 @@ const stepsJson = JSON.stringify(steps);
         { n:'02', title:'Transparencia total',       desc:'Cada decisión de arquitectura, seguridad e integración queda documentada y es completamente tuya.', color:'#8B5CF6' },
         { n:'03', title:'Acompañamiento continuo',   desc:'La solución evoluciona junto con los procesos y el equipo. No desaparecemos después del deploy.', color:'#EC4899' },
       ].map((p, i) => (
-        <div class="glass rounded-2xl p-7 scroll-reveal group hover:-translate-y-1 transition-all duration-300" style={`transition-delay:${i*0.1}s;`}>
-          <span class="inline-block w-10 h-10 rounded-xl flex items-center justify-center text-xs font-black font-mono mb-5 group-hover:scale-110 transition-transform"
-                style={`background:${p.color}12;border:1px solid ${p.color}30;color:${p.color};`}>
+        <div class="commercial-card rounded-2xl p-7 scroll-reveal group hover:-translate-y-1 transition-all duration-300" style={`transition-delay:${i*0.1}s;`}>
+          <span class="inline-flex w-10 h-10 rounded-xl items-center justify-center text-xs font-black font-mono mb-5 group-hover:scale-110 transition-transform"
+                style={`background:${p.color}0C;border:1px solid ${p.color}22;color:${p.color};`}>
             {p.n}
           </span>
-          <h3 class="font-bold text-white mb-2 text-sm" style="font-family:'Plus Jakarta Sans',sans-serif;">{p.title}</h3>
-          <p class="text-sm leading-relaxed" style="color:#94A3B8;">{p.desc}</p>
+          <h3 class="font-bold text-[#0F0F1A] mb-2 text-sm" style="font-family:'Plus Jakarta Sans',sans-serif;">{p.title}</h3>
+          <p class="text-sm leading-relaxed text-[#64748B]">{p.desc}</p>
         </div>
       ))}
     </div>
@@ -210,32 +205,14 @@ const stepsJson = JSON.stringify(steps);
 </section>
 
 <style>
-  @keyframes stepEnter {
-    from { opacity: 0; transform: translateY(14px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .step-content-anim { animation: stepEnter 0.45s cubic-bezier(0.16,1,0.3,1) both; }
-
-  @keyframes progressRun {
-    from { width: 0%; }
-    to   { width: 100%; }
-  }
-  .progress-running {
-    animation: progressRun var(--step-duration, 4s) linear forwards;
-  }
-
-  .step-btn .step-circle { cursor: pointer; }
-  .step-btn.is-active .step-circle {
-    transform: scale(1.12);
-    border-width: 2px;
-  }
-  .step-btn.is-active .step-circle .step-ring { opacity: 1; animation: glowRing 1.8s ease-in-out infinite; }
-  .step-btn.is-active .step-label { color: #F8FAFC; }
-  .step-btn.is-done .step-label   { color: #64748B; }
+  .step-btn.is-active .step-circle { transform: scale(1.12); border-width: 2px; }
+  .step-btn.is-active .step-circle .step-ring { opacity: 1 !important; animation: glowRing 1.8s ease-in-out infinite; }
+  .step-btn.is-active .step-label { color: #0F0F1A !important; font-weight: 700; }
+  .step-btn.is-done .step-label   { color: #64748B !important; }
 
   @keyframes glowRing {
     0%,100% { opacity: 0.7; transform: scale(1); }
-    50%      { opacity: 1;   transform: scale(1.03); }
+    50%      { opacity: 1;   transform: scale(1.04); }
   }
 </style>
 
@@ -264,11 +241,9 @@ const stepsJson = JSON.stringify(steps);
     current = idx;
     const s = steps[idx];
 
-    // Track line fill
     const pct = idx === 0 ? 0 : (idx / (steps.length - 1)) * 100;
     if (trackProgress) trackProgress.style.width = pct + '%';
 
-    // Step circles
     stepBtns.forEach((btn, i) => {
       btn.classList.toggle('is-active', i === idx);
       btn.classList.toggle('is-done',   i < idx);
@@ -278,53 +253,46 @@ const stepsJson = JSON.stringify(steps);
       if (!circle || !ring || !label) return;
 
       if (i === idx) {
-        circle.style.background      = s.color + '22';
+        circle.style.background      = s.color + '14';
         circle.style.borderColor     = s.color;
-        circle.style.boxShadow       = `0 0 0 4px ${s.color}20`;
+        circle.style.boxShadow       = `0 0 0 4px ${s.color}18`;
         ring.style.opacity           = '1';
-        label.style.color            = '#F8FAFC';
       } else if (i < idx) {
-        circle.style.background      = steps[i].color + '18';
-        circle.style.borderColor     = steps[i].color + '50';
-        circle.style.boxShadow       = '';
-        ring.style.opacity           = '0';
-        label.style.color            = '#475569';
-      } else {
         circle.style.background      = steps[i].color + '0A';
-        circle.style.borderColor     = steps[i].color + '25';
+        circle.style.borderColor     = steps[i].color + '30';
         circle.style.boxShadow       = '';
         ring.style.opacity           = '0';
-        label.style.color            = '#334155';
+      } else {
+        circle.style.background      = 'white';
+        circle.style.borderColor     = steps[i].color + '20';
+        circle.style.boxShadow       = '';
+        ring.style.opacity           = '0';
       }
     });
 
-    // Nav dots
     navDots.forEach((dot, i) => {
       dot.style.width      = i === idx ? '20px' : '6px';
       dot.style.height     = '6px';
-      dot.style.background = i === idx ? s.color : (i < idx ? s.color + '50' : 'rgba(255,255,255,0.12)');
+      dot.style.background = i === idx ? s.color : (i < idx ? s.color + '40' : 'rgba(0,0,0,0.1)');
       dot.style.borderRadius = '999px';
     });
 
-    // Panel glow
     if (panelGlow) panelGlow.style.background =
-      `radial-gradient(ellipse at 50% 0%,${s.color}28 0%,transparent 60%)`;
+      `radial-gradient(ellipse at 50% 0%,${s.color}14 0%,transparent 60%)`;
 
-    // Panel icon
     if (panelIconWrap) {
-      panelIconWrap.style.background   = s.color + '18';
-      panelIconWrap.style.borderColor  = s.color + '50';
-      panelIconWrap.style.boxShadow    = `0 0 30px ${s.color}20`;
+      panelIconWrap.style.background   = s.color + '0E';
+      panelIconWrap.style.borderColor  = s.color + '35';
+      panelIconWrap.style.boxShadow    = `0 0 28px ${s.color}14`;
     }
     if (panelIcon) {
       panelIcon.setAttribute('stroke', s.color);
       panelIcon.innerHTML = s.icon;
     }
 
-    // Panel text — animate in
     if (stepContent) {
       stepContent.classList.remove('step-content-anim');
-      void stepContent.offsetWidth; // reflow
+      void stepContent.offsetWidth;
       stepContent.classList.add('step-content-anim');
     }
     if (panelNum)    panelNum.textContent    = `PASO ${s.n} DE 07`;
@@ -333,7 +301,6 @@ const stepsJson = JSON.stringify(steps);
     if (panelDesc)   panelDesc.textContent   = s.desc;
     if (panelDetail) { panelDetail.textContent = s.detail; panelDetail.style.color = s.color; }
 
-    // Reset & run progress bar
     startProgress(s.color);
   }
 
@@ -345,7 +312,6 @@ const stepsJson = JSON.stringify(steps);
     autoProgress.classList.remove('progress-running');
     void autoProgress.offsetWidth;
 
-    // Use CSS custom property + class for animation
     autoProgress.style.setProperty('--step-duration', DURATION + 'ms');
     autoProgress.classList.add('progress-running');
 
@@ -356,34 +322,15 @@ const stepsJson = JSON.stringify(steps);
     }, DURATION);
   }
 
-  // Controls
-  btnPrev?.addEventListener('click', () => {
-    clearTimeout(progressAnim);
-    activate((current - 1 + steps.length) % steps.length);
-  });
-  btnNext?.addEventListener('click', () => {
-    clearTimeout(progressAnim);
-    activate((current + 1) % steps.length);
-  });
-  stepBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      clearTimeout(progressAnim);
-      activate(Number(btn.dataset.idx));
-    });
-  });
-  navDots.forEach((dot) => {
-    dot.addEventListener('click', () => {
-      clearTimeout(progressAnim);
-      activate(Number(dot.dataset.idx));
-    });
-  });
+  btnPrev?.addEventListener('click', () => { clearTimeout(progressAnim); activate((current - 1 + steps.length) % steps.length); });
+  btnNext?.addEventListener('click', () => { clearTimeout(progressAnim); activate((current + 1) % steps.length); });
+  stepBtns.forEach((btn) => { btn.addEventListener('click', () => { clearTimeout(progressAnim); activate(Number(btn.dataset.idx)); }); });
+  navDots.forEach((dot) => { dot.addEventListener('click', () => { clearTimeout(progressAnim); activate(Number(dot.dataset.idx)); }); });
 
-  // Pause on hover
   const panel = document.getElementById('step-panel');
   panel?.addEventListener('mouseenter', () => { clearTimeout(progressAnim); autoProgress?.classList.remove('progress-running'); });
   panel?.addEventListener('mouseleave', () => startProgress(steps[current].color));
 
-  // Start when visible
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) { activate(0); observer.disconnect(); }
   }, { threshold: 0.3 });
