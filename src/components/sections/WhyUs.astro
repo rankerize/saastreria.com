@@ -54,7 +54,7 @@ const steps = [
 const stepsJson = JSON.stringify(steps);
 ---
 
-<section class="py-28 px-6 relative overflow-hidden" style="background:#FFFFFF;">
+<section class="py-28 px-6 relative overflow-hidden" style="background:#F2F2F7;border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);">
 
   <!-- Sutil decoración -->
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -71,7 +71,7 @@ const stepsJson = JSON.stringify(steps);
         Del diagnóstico al resultado.<br/>
         <span class="gradient-text">Un proceso claro y medible.</span>
       </h2>
-      <p class="text-[#64748B] max-w-xl mx-auto text-lg">
+      <p class="text-[#374151] max-w-xl mx-auto text-lg">
         Seguimos siete pasos que transforman la operación. Nada de genéricos — cada fase se adapta al negocio real.
       </p>
     </div>
@@ -117,7 +117,7 @@ const stepsJson = JSON.stringify(steps);
 
       <!-- Panel featured del paso activo -->
       <div class="relative rounded-3xl overflow-hidden" id="step-panel"
-           style="background:#FAFBFF;border:1px solid rgba(99,102,241,0.1);box-shadow:0 4px 24px rgba(99,102,241,0.06);">
+           style="background:#FFFFFF;border:1px solid rgba(0,0,0,0.1);box-shadow:0 4px 24px rgba(0,0,0,0.08),0 1px 3px rgba(0,0,0,0.06);">
 
         <!-- Glow de color del paso activo -->
         <div id="panel-glow" class="absolute inset-0 pointer-events-none transition-all duration-700 opacity-40"
@@ -148,7 +148,7 @@ const stepsJson = JSON.stringify(steps);
             </div>
             <h3 id="panel-title" class="text-3xl font-extrabold text-[#0F0F1A] mb-3"
                 style="font-family:'Plus Jakarta Sans',sans-serif;">Diagnóstico</h3>
-            <p id="panel-desc" class="text-[#64748B] text-base leading-relaxed mb-4">
+            <p id="panel-desc" class="text-[#374151] text-base leading-relaxed mb-4">
               Entendemos la operación, los sistemas y los objetivos reales del negocio antes de escribir una sola línea de código.
             </p>
             <p id="panel-detail" class="text-sm font-medium" style="color:#6366F1;">
@@ -196,7 +196,7 @@ const stepsJson = JSON.stringify(steps);
             {p.n}
           </span>
           <h3 class="font-bold text-[#0F0F1A] mb-2 text-sm" style="font-family:'Plus Jakarta Sans',sans-serif;">{p.title}</h3>
-          <p class="text-sm leading-relaxed text-[#64748B]">{p.desc}</p>
+          <p class="text-sm leading-relaxed text-[#374151]">{p.desc}</p>
         </div>
       ))}
     </div>

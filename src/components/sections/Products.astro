@@ -1,7 +1,7 @@
 ---
 import { products } from '../../data/services';
 ---
-<section id="productos" class="py-24 px-6">
+<section id="productos" class="py-24 px-6" style="background:#FFFFFF;border-top:1px solid rgba(0,0,0,0.06);">
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-16">
       <span class="inline-block px-3 py-1 rounded-full border border-[#F59E0B]/25 bg-[#F59E0B]/08 text-[#D97706] text-xs font-medium mb-4" style="background:rgba(245,158,11,0.07);">
@@ -10,7 +10,7 @@ import { products } from '../../data/services';
       <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-[#0F0F1A]" style="font-family: 'Plus Jakarta Sans', sans-serif;">
         Software listo para usar hoy
       </h2>
-      <p class="text-[#64748B] max-w-xl mx-auto">
+      <p class="text-[#374151] max-w-xl mx-auto">
         Además de desarrollar soluciones a medida, diseñamos productos configurables para necesidades recurrentes.
       </p>
     </div>
@@ -27,14 +27,14 @@ import { products } from '../../data/services';
             </div>
             <h3 class="text-xl font-bold text-[#0F0F1A] mb-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">{p.name}</h3>
             <p class="text-[#D97706] text-sm font-medium mb-4">{p.tagline}</p>
-            <p class="text-[#64748B] text-sm leading-relaxed">{p.description}</p>
+            <p class="text-[#374151] text-sm leading-relaxed">{p.description}</p>
           </div>
 
           <!-- Features -->
           <div class="px-8 pb-6">
             <ul class="space-y-2">
               {p.features.map(f => (
-                <li class="flex items-start gap-2.5 text-sm text-[#64748B]">
+                <li class="flex items-start gap-2.5 text-sm text-[#374151]">
                   <svg class="w-4 h-4 text-[#6366F1] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <path d="M20 6L9 17l-5-5"/>
                   </svg>

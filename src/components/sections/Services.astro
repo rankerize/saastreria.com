@@ -13,7 +13,7 @@ const icons: Record<string, string> = {
 };
 ---
 
-<section id="servicios" class="py-24 px-6">
+<section id="servicios" class="py-24 px-6" style="background:#FFFFFF;border-top:1px solid rgba(0,0,0,0.06);">
   <div class="max-w-7xl mx-auto">
 
     <!-- Header -->
@@ -22,7 +22,7 @@ const icons: Record<string, string> = {
       <h2 class="text-3xl sm:text-4xl font-bold mb-4 mt-6" style="font-family: 'Plus Jakarta Sans', sans-serif; color: #0F0F1A;">
         Cuatro capacidades para transformar toda la operación
       </h2>
-      <p class="text-[#64748B] max-w-xl mx-auto">
+      <p class="text-[#374151] max-w-xl mx-auto">
         Combinamos software, datos, automatización e inteligencia artificial según los procesos y objetivos de cada organización.
       </p>
     </div>
@@ -46,11 +46,11 @@ const icons: Record<string, string> = {
           </div>
 
           <h3 class="font-bold text-[#0F0F1A] mb-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">{s.title}</h3>
-          <p class="text-sm text-[#64748B] leading-relaxed">{s.description}</p>
+          <p class="text-sm text-[#374151] leading-relaxed">{s.description}</p>
 
           <div class="flex flex-wrap gap-2 mt-5">
             {s.capabilities.map((capability) => (
-              <span class="px-2.5 py-1 rounded-lg text-xs text-[#64748B]" style="border:1px solid rgba(0,0,0,0.08);background:#F8FAFC;">
+              <span class="px-2.5 py-1 rounded-lg text-xs text-[#374151]" style="border:1px solid rgba(0,0,0,0.08);background:#F8FAFC;">
                 {capability}
               </span>
             ))}
