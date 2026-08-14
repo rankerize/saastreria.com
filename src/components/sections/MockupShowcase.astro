@@ -1,0 +1,284 @@
+---
+const slides = [
+  {
+    id: 'rutas',
+    label: 'CoordRutas — Panel de control',
+    live: { text: '12 rutas activas', color: 'green' },
+    image: '/mockup-rutas.jpg',
+    alt: 'Coordinador de Rutas — Dashboard logístico en tiempo real',
+    title: 'Coordinador de Rutas',
+    desc: 'Logística · Distribución · Última milla',
+    footer: 'GPS en tiempo real · optimización con IA · trazabilidad',
+    stat: '94% eficiencia',
+    statColor: '#6366F1',
+    accentColor: 'rgba(99,102,241,0.25)',
+    iconColor: '#6366F1',
+    iconBg: 'rgba(99,102,241,0.1)',
+    iconBorder: 'rgba(99,102,241,0.2)',
+    icon: `<path d="M3 12h3l3-9 4 18 3-9h3" stroke-linecap="round" stroke-linejoin="round"/>`,
+  },
+  {
+    id: 'sst',
+    label: 'SST Manager v2 — Dashboard principal',
+    live: { text: 'Cumplimiento 94%', color: 'amber' },
+    image: '/mockup-sst.jpg',
+    alt: 'SST Manager — Gestión de Seguridad y Salud en el Trabajo',
+    title: 'Sistema de Gestión SST',
+    desc: 'Seguridad · Salud laboral · Cumplimiento normativo',
+    footer: 'Resolución 0312 · Informes automáticos · Multi-empresa',
+    stat: '↓ 67% incidentes',
+    statColor: '#F59E0B',
+    accentColor: 'rgba(245,158,11,0.2)',
+    iconColor: '#F59E0B',
+    iconBg: 'rgba(245,158,11,0.1)',
+    iconBorder: 'rgba(245,158,11,0.2)',
+    icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>`,
+  },
+  {
+    id: 'catalogo',
+    label: 'SagaFiltros — Catálogo Industrial',
+    live: { text: 'Tienda activa', color: 'green' },
+    image: '/mockup-catalogo.jpg',
+    alt: 'Catálogo B2C industrial — ecommerce de filtros hidráulicos y aceite',
+    title: 'Catálogo Industrial B2C',
+    desc: 'E-commerce · Filtros · Mercado industrial',
+    footer: 'Catálogo de productos · carrito · integración de pagos',
+    stat: '+2.400 SKUs',
+    statColor: '#10B981',
+    accentColor: 'rgba(16,185,129,0.2)',
+    iconColor: '#10B981',
+    iconBg: 'rgba(16,185,129,0.1)',
+    iconBorder: 'rgba(16,185,129,0.2)',
+    icon: `<path d="M6 8h12l-1 12H7L6 8z" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 016 0v2" stroke-linecap="round"/>`,
+  },
+  {
+    id: 'crm',
+    label: 'CRM Empresarial — Pipeline de Ventas',
+    live: { text: '8 negocios abiertos', color: 'blue' },
+    image: '/mockup-crm.jpg',
+    alt: 'CRM visual con pipeline kanban — gestión de negocios y contactos',
+    title: 'Constructor de CRM',
+    desc: 'Pipeline · Contactos · Automatización',
+    footer: 'Kanban visual · actividades · reportes de ventas',
+    stat: '$348M en pipeline',
+    statColor: '#3B82F6',
+    accentColor: 'rgba(59,130,246,0.2)',
+    iconColor: '#3B82F6',
+    iconBg: 'rgba(59,130,246,0.1)',
+    iconBorder: 'rgba(59,130,246,0.2)',
+    icon: `<rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/>`,
+  },
+  {
+    id: 'portal',
+    label: 'Portal B2B — Pedidos y Facturación',
+    live: { text: '12 pedidos activos', color: 'purple' },
+    image: '/mockup-portal.jpg',
+    alt: 'Portal B2B empresarial — gestión de pedidos y facturas',
+    title: 'Portal Empresarial B2B',
+    desc: 'Pedidos · Facturas · Clientes corporativos',
+    footer: 'Self-service · historial · descarga de documentos',
+    stat: '$48.2M este mes',
+    statColor: '#8B5CF6',
+    accentColor: 'rgba(139,92,246,0.2)',
+    iconColor: '#8B5CF6',
+    iconBg: 'rgba(139,92,246,0.1)',
+    iconBorder: 'rgba(139,92,246,0.2)',
+    icon: `<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>`,
+  },
+];
+---
+
+<section id="productos-demo" class="py-24 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Header -->
+    <div class="text-center mb-14 scroll-reveal">
+      <span class="eyebrow mb-6">Productos que construimos</span>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-6 mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+        Software diseñado para
+        <span class="gradient-text"> operaciones reales</span>
+      </h2>
+      <p class="text-[#94A3B8] max-w-xl mx-auto">
+        Desde catálogos industriales hasta CRMs y sistemas SST — cada producto construido a la medida del negocio.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ── Carrusel horizontal (full-width) ── -->
+  <div class="relative">
+    <!-- Fade left -->
+    <div class="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style="background: linear-gradient(90deg, #0A0A0F 0%, transparent 100%);"></div>
+    <!-- Fade right -->
+    <div class="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style="background: linear-gradient(270deg, #0A0A0F 0%, transparent 100%);"></div>
+
+    <!-- Track -->
+    <div
+      id="mockup-carousel"
+      class="flex gap-6 overflow-x-auto pb-6 px-6 scroll-smooth"
+      style="scrollbar-width: none; -ms-overflow-style: none; cursor: grab;"
+    >
+      {slides.map((s, i) => (
+        <div class="flex-shrink-0 w-[680px] group scroll-reveal" style={`transition-delay: ${i * 0.08}s;`}>
+
+          <!-- Browser frame -->
+          <div
+            class="glass rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2"
+            style={`hover-shadow: 0 24px 64px ${s.accentColor};`}
+            data-accent={s.accentColor}
+          >
+            <!-- Window bar -->
+            <div class="flex items-center gap-2 px-5 py-3 border-b border-white/5 bg-[#0D0D14]">
+              <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500/70"></div>
+              <span class="ml-3 text-xs text-[#475569] font-mono flex-1 truncate">{s.label}</span>
+              <span class={`flex items-center gap-1.5 text-xs font-mono flex-shrink-0 ${
+                s.live.color === 'green'  ? 'text-green-400' :
+                s.live.color === 'amber'  ? 'text-[#F59E0B]' :
+                s.live.color === 'blue'   ? 'text-blue-400' :
+                'text-purple-400'
+              }`}>
+                <span class={`w-1.5 h-1.5 rounded-full live-dot ${
+                  s.live.color === 'green'  ? 'bg-green-400' :
+                  s.live.color === 'amber'  ? 'bg-[#F59E0B]' :
+                  s.live.color === 'blue'   ? 'bg-blue-400' :
+                  'bg-purple-400'
+                }`}></span>
+                {s.live.text}
+              </span>
+            </div>
+
+            <!-- Imagen -->
+            <div class="relative overflow-hidden">
+              <img
+                src={s.image}
+                alt={s.alt}
+                class="w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                style="aspect-ratio: 16/9;"
+                loading={i < 2 ? 'eager' : 'lazy'}
+                decoding="async"
+                onerror="this.parentElement.innerHTML='<div class=\'w-full bg-[#111118] flex items-center justify-center\' style=\'aspect-ratio:16/9\'><span class=\'text-[#475569] text-sm font-mono\'>Imagen generando...</span></div>'"
+              />
+              <!-- Overlay hover -->
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0F]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+
+            <!-- Footer bar -->
+            <div class="px-5 py-3.5 border-t border-white/5 bg-[#0D0D14] flex items-center justify-between gap-4">
+              <p class="text-xs text-[#475569] truncate">{s.footer}</p>
+              <span class="text-xs font-semibold font-mono flex-shrink-0" style={`color: ${s.statColor};`}>{s.stat}</span>
+            </div>
+          </div>
+
+          <!-- Label debajo -->
+          <div class="mt-4 flex items-center gap-3 px-1">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 border" style={`background: ${s.iconBg}; border-color: ${s.iconBorder};`}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke={s.iconColor} stroke-width="2" set:html={s.icon}/>
+            </div>
+            <div class="min-w-0">
+              <p class="text-sm font-semibold text-white truncate" style="font-family: 'Plus Jakarta Sans', sans-serif;">{s.title}</p>
+              <p class="text-xs text-[#94A3B8]">{s.desc}</p>
+            </div>
+          </div>
+
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- ── Controles + dots ── -->
+  <div class="max-w-7xl mx-auto px-6 mt-8 flex items-center justify-between">
+
+    <!-- Dots -->
+    <div class="flex items-center gap-2" id="carousel-dots">
+      {slides.map((_, i) => (
+        <button
+          class={`carousel-dot rounded-full transition-all duration-300 ${i === 0 ? 'w-6 h-2 bg-[#6366F1]' : 'w-2 h-2 bg-white/20 hover:bg-white/40'}`}
+          data-index={i}
+          aria-label={`Ir a slide ${i + 1}`}
+        ></button>
+      ))}
+    </div>
+
+    <!-- Arrows -->
+    <div class="flex items-center gap-3">
+      <button id="carousel-prev" class="w-10 h-10 rounded-xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] hover:border-white/20 flex items-center justify-center transition-all" aria-label="Anterior">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button id="carousel-next" class="w-10 h-10 rounded-xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] hover:border-white/20 flex items-center justify-center transition-all" aria-label="Siguiente">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <a href="/diagnostico/" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#6366F1] hover:bg-[#4F46E5] text-white font-semibold transition-all hover:shadow-[0_0_24px_rgba(99,102,241,0.4)] hover:-translate-y-0.5 text-sm">
+        Construir el tuyo
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #mockup-carousel::-webkit-scrollbar { display: none; }
+  #mockup-carousel.dragging { cursor: grabbing; user-select: none; }
+</style>
+
+<script>
+  const carousel  = document.getElementById('mockup-carousel') as HTMLElement;
+  const dotsEl    = document.getElementById('carousel-dots');
+  const prevBtn   = document.getElementById('carousel-prev');
+  const nextBtn   = document.getElementById('carousel-next');
+  const SLIDE_W   = 680 + 24; // width + gap
+  let current     = 0;
+  const total     = document.querySelectorAll('#mockup-carousel > div').length;
+
+  function scrollTo(idx: number) {
+    current = Math.max(0, Math.min(idx, total - 1));
+    carousel.scrollTo({ left: current * SLIDE_W, behavior: 'smooth' });
+    dotsEl?.querySelectorAll<HTMLElement>('.carousel-dot').forEach((dot, i) => {
+      dot.classList.toggle('w-6',  i === current);
+      dot.classList.toggle('w-2',  i !== current);
+      dot.classList.toggle('bg-[#6366F1]', i === current);
+      dot.classList.toggle('bg-white/20',  i !== current);
+    });
+  }
+
+  prevBtn?.addEventListener('click', () => scrollTo(current - 1));
+  nextBtn?.addEventListener('click', () => scrollTo(current + 1));
+  dotsEl?.querySelectorAll<HTMLButtonElement>('.carousel-dot').forEach((dot) => {
+    dot.addEventListener('click', () => scrollTo(Number(dot.dataset.index)));
+  });
+
+  // Drag to scroll
+  let isDown = false, startX = 0, scrollLeft = 0;
+  carousel.addEventListener('mousedown',  (e) => { isDown = true; carousel.classList.add('dragging'); startX = e.pageX - carousel.offsetLeft; scrollLeft = carousel.scrollLeft; });
+  carousel.addEventListener('mouseleave', ()  => { isDown = false; carousel.classList.remove('dragging'); });
+  carousel.addEventListener('mouseup',    ()  => { isDown = false; carousel.classList.remove('dragging'); });
+  carousel.addEventListener('mousemove',  (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x    = e.pageX - carousel.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    carousel.scrollLeft = scrollLeft - walk;
+  });
+
+  // Touch
+  let touchStartX = 0;
+  carousel.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  carousel.addEventListener('touchend',   (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) scrollTo(diff > 0 ? current + 1 : current - 1);
+  });
+
+  // Auto-advance
+  let autoTimer = setInterval(() => scrollTo(current + 1 < total ? current + 1 : 0), 5000);
+  carousel.addEventListener('mouseenter', () => clearInterval(autoTimer));
+  carousel.addEventListener('mouseleave', () => { autoTimer = setInterval(() => scrollTo(current + 1 < total ? current + 1 : 0), 5000); });
+
+  // Hover shadow per card
+  document.querySelectorAll<HTMLElement>('#mockup-carousel .glass').forEach((card) => {
+    const accent = card.dataset.accent || 'rgba(99,102,241,0.25)';
+    card.addEventListener('mouseenter', () => { card.style.boxShadow = `0 24px 64px ${accent}`; });
+    card.addEventListener('mouseleave', () => { card.style.boxShadow = ''; });
+  });
+</script>

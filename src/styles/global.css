@@ -122,9 +122,122 @@ h1, h2, h3, h4, h5, h6 {
 .delay-3 { animation-delay: 0.4s; opacity: 0; }
 .delay-4 { animation-delay: 0.55s; opacity: 0; }
 
+/* ═══════════════════════════════════════════
+   MARQUEE — tech logo banner
+═══════════════════════════════════════════ */
+@keyframes marquee         { from { transform: translateX(0); }    to { transform: translateX(-50%); } }
+@keyframes marqueeReverse  { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+.marquee-forward  { animation: marquee        35s linear infinite; }
+.marquee-reverse  { animation: marqueeReverse 35s linear infinite; }
+.marquee-wrapper:hover .marquee-forward,
+.marquee-wrapper:hover .marquee-reverse { animation-play-state: paused; }
+
+/* ═══════════════════════════════════════════
+   ORBIT rings (hero decoration)
+═══════════════════════════════════════════ */
+@keyframes orbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.orbit-1 { animation: orbit 20s linear infinite; }
+.orbit-2 { animation: orbit 35s linear infinite reverse; }
+
+/* ═══════════════════════════════════════════
+   FLOATING PARTICLES
+═══════════════════════════════════════════ */
+@keyframes particleFloat {
+  0%,100% { transform: translate(0,0) scale(1); }
+  25%     { transform: translate(8px,-16px) scale(1.1); }
+  50%     { transform: translate(-5px,-28px) scale(0.9); }
+  75%     { transform: translate(-10px,-10px) scale(1.05); }
+}
+.particle-float { animation: particleFloat 7s ease-in-out infinite; }
+
+/* ═══════════════════════════════════════════
+   LIVE STATUS DOT
+═══════════════════════════════════════════ */
+@keyframes livePulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50%     { transform: scale(1.8); opacity: 0.5; }
+}
+.live-dot { animation: livePulse 1.6s ease-in-out infinite; }
+
+/* ═══════════════════════════════════════════
+   TYPING CURSOR
+═══════════════════════════════════════════ */
+@keyframes cursorBlink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+.typing-cursor { animation: cursorBlink 0.8s ease-in-out infinite; }
+
+/* ═══════════════════════════════════════════
+   SCROLL PROGRESS BAR
+═══════════════════════════════════════════ */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6366F1 0%, #818CF8 50%, #F59E0B 100%);
+  z-index: 9999;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.08s linear;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════
+   SCROLL REVEAL (IntersectionObserver)
+═══════════════════════════════════════════ */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.scroll-reveal[style*="transition-delay"] { }
+
+/* ═══════════════════════════════════════════
+   3D TILT CARD
+═══════════════════════════════════════════ */
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ═══════════════════════════════════════════
+   GLOW PULSE (mockup cards on hover)
+═══════════════════════════════════════════ */
+@keyframes glowPulse {
+  0%,100% { box-shadow: 0 0 20px rgba(99,102,241,0.15); }
+  50%     { box-shadow: 0 0 40px rgba(99,102,241,0.35); }
+}
+
+/* ═══════════════════════════════════════════
+   SHIMMER gradient text/border
+═══════════════════════════════════════════ */
+@keyframes shimmerSlide {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.shimmer-border {
+  background: linear-gradient(90deg,
+    rgba(99,102,241,0.1),
+    rgba(99,102,241,0.4),
+    rgba(245,158,11,0.3),
+    rgba(99,102,241,0.1));
+  background-size: 200% 100%;
+  animation: shimmerSlide 3s linear infinite;
+}
+
+/* ═══════════════════════════════════════════
+   REDUCED MOTION
+═══════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 }
 
 ::-webkit-scrollbar { width: 6px; }

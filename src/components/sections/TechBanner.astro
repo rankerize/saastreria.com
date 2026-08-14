@@ -1,0 +1,115 @@
+---
+const row1 = [
+  {
+    name: 'HubSpot',
+    color: '#FF7A59',
+    svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 12.3a3.3 3.3 0 00-2.2-3.1V7.1a1.85 1.85 0 10-1.8 0v2.1a3.3 3.3 0 00-1.5 5.5l-4.7 3.4a1.15 1.15 0 10.7 1.6l4.7-3.4a3.3 3.3 0 004.8-3.9zM17 16.7a1.1 1.1 0 110-2.2 1.1 1.1 0 010 2.2z"/></svg>`
+  },
+  {
+    name: 'Shopify',
+    color: '#96BF47',
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9h12l-1.5 10H7.5L6 9z"/><path d="M9 9V7a3 3 0 016 0v2"/></svg>`
+  },
+  {
+    name: 'WordPress',
+    color: '#21759B',
+    svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M5.5 9h13M8 9l2 9m4-9l-2 9M12 9l-1.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`
+  },
+  {
+    name: 'Anthropic',
+    color: '#CF7C3A',
+    svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L3 21h3.5l1.6-4.2h7.8L17.5 21H21L12 3zm-2.3 10.8L12 8.2l2.3 5.6H9.7z"/></svg>`
+  },
+  {
+    name: 'Google Analytics',
+    color: '#E37400',
+    svg: `<svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="14" width="4" height="7" rx="1" fill="#E34234"/><rect x="10" y="9" width="4" height="12" rx="1" fill="#FBBC04"/><rect x="17" y="3" width="4" height="18" rx="1" fill="#34A853"/></svg>`
+  },
+  {
+    name: 'Search Console',
+    color: '#4285F4',
+    svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="10" cy="10" r="6.5" stroke="#4285F4" stroke-width="2.5"/><path d="M20.5 20.5l-4-4" stroke="#EA4335" stroke-width="2.5" stroke-linecap="round"/></svg>`
+  },
+];
+
+const row2 = [
+  {
+    name: 'Tienda Nube',
+    color: '#7C3AED',
+    svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.5 10.5a6 6 0 10-11.3 2.8A4 4 0 007 21h11a5 5 0 00.5-9.5z"/></svg>`
+  },
+  {
+    name: 'n8n',
+    color: '#FF6D5A',
+    svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6v12h3V10l4 8h2l4-8v8h3V6h-3.5L12 14 7.5 6H4z"/></svg>`
+  },
+  {
+    name: 'Supabase',
+    color: '#3ECF8E',
+    svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h8l-1 8 9-12h-8z"/></svg>`
+  },
+  {
+    name: 'Vercel',
+    color: '#E2E8F0',
+    svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 20h20L12 2z"/></svg>`
+  },
+  {
+    name: 'Stripe',
+    color: '#635BFF',
+    svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-3.5H9v-2h2v-1.5c0-1.93 1.57-3.5 3.5-3.5V9c-.83 0-1.5.67-1.5 1.5V12h2v2h-2v3.5h-2z"/></svg>`
+  },
+  {
+    name: 'Make',
+    color: '#A100FF',
+    svg: `<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2.5"/><circle cx="12" cy="5" r="2.5"/><circle cx="19" cy="12" r="2.5"/><circle cx="12" cy="19" r="2.5"/><path d="M7.5 12h9M12 7.5v9" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>`
+  },
+  {
+    name: 'Google Ads',
+    color: '#FBBC04',
+    svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 20l8-14 4 7H8l-1.8 3H4zm14 0h-3l-1.5-3 1.8-3L18 9l2 2-2 9z" fill-rule="evenodd"/></svg>`
+  },
+  {
+    name: 'Meta Ads',
+    color: '#0866FF',
+    svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 6.5c0-1.1.9-2 2-2s2 .9 2 2v7c0 1.1-.9 2-2 2s-2-.9-2-2v-7zm-4 2c0-.83.67-1.5 1.5-1.5S10 9.67 10 10.5v5c0 .83-.67 1.5-1.5 1.5S7 16.33 7 15.5v-5z"/></svg>`
+  },
+];
+
+// Duplicar para efecto infinito
+const allRow1 = [...row1, ...row1, ...row1];
+const allRow2 = [...row2, ...row2, ...row2];
+---
+
+<section class="py-16 overflow-hidden relative" style="background: #0D0D14; border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04);">
+  <!-- Fade edges -->
+  <div class="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none" style="background: linear-gradient(90deg, #0D0D14 0%, transparent 100%);"></div>
+  <div class="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none" style="background: linear-gradient(270deg, #0D0D14 0%, transparent 100%);"></div>
+
+  <div class="text-center mb-10 px-6">
+    <span class="eyebrow">Integramos con tu ecosistema tecnológico</span>
+  </div>
+
+  <!-- Row 1: scroll left -->
+  <div class="marquee-wrapper mb-5 overflow-hidden">
+    <div class="marquee-forward flex gap-6 w-max">
+      {allRow1.map((tool) => (
+        <div class="flex items-center gap-2.5 px-5 py-3 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:border-white/[0.15] hover:bg-white/[0.05] transition-all cursor-default flex-shrink-0">
+          <span class="w-6 h-6 flex-shrink-0" style={`color: ${tool.color};`} set:html={tool.svg} />
+          <span class="text-sm font-medium text-[#94A3B8] whitespace-nowrap">{tool.name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Row 2: scroll right -->
+  <div class="marquee-wrapper overflow-hidden">
+    <div class="marquee-reverse flex gap-6 w-max">
+      {allRow2.map((tool) => (
+        <div class="flex items-center gap-2.5 px-5 py-3 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:border-white/[0.15] hover:bg-white/[0.05] transition-all cursor-default flex-shrink-0">
+          <span class="w-6 h-6 flex-shrink-0" style={`color: ${tool.color};`} set:html={tool.svg} />
+          <span class="text-sm font-medium text-[#94A3B8] whitespace-nowrap">{tool.name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
