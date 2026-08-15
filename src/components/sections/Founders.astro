@@ -1,6 +1,16 @@
 ---
 const founders = [
   {
+    name:    'Orlando Hernández Manrique',
+    role:    'Fundador & CEO · Saastreria',
+    photo:   '/orlando-hernandez.svg',
+    bio:     'Fundé Saastreria para que las empresas medianas dejen de adaptarse a software genérico. Me siento contigo a entender el proceso, defino la estrategia y acompaño la construcción hasta que la tecnología funciona en producción — a la medida del negocio, no al revés.',
+    linkedin: 'https://www.linkedin.com/in/orlando-hernandez-manrique-53149110b/',
+    tag:     'Estrategia · Producto · Ingeniería',
+    color:   '#BFA255',
+    callout: 'Cada proyecto empieza y termina bajo mi mirada: estrategia, prioridades y calidad. Sin capas intermedias entre tú y quien decide.',
+  },
+  {
     name:    'César Jiménez',
     role:    'Co-fundador · Saastreria',
     photo:   '/cesar-jimenez.jpg',
@@ -8,6 +18,7 @@ const founders = [
     linkedin: 'https://www.linkedin.com/in/cesarjimenezarcia/',
     tag:     'Software · IA · Datos',
     color:   '#1B3461',
+    callout: 'El diagnóstico inicial lo hago yo directamente. Sin intermediarios, sin ventas — solo una conversación honesta sobre tu proceso.',
   },
 ];
 ---
@@ -36,9 +47,9 @@ const founders = [
     </div>
 
     <!-- Founder cards -->
-    <div class={`flex flex-col ${founders.length > 1 ? 'sm:flex-row' : 'items-center'} gap-8 justify-center`}>
+    <div class={`flex flex-col gap-8 justify-center ${founders.length > 1 ? 'lg:flex-row items-stretch' : 'items-center'}`}>
       {founders.map((f, i) => (
-        <div class="commercial-card rounded-2xl p-8 scroll-reveal max-w-xl w-full group hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(27,52,97,0.1)]"
+        <div class="commercial-card rounded-2xl p-8 scroll-reveal max-w-xl w-full flex-1 group hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(27,52,97,0.1)]"
              style={`transition-delay:${i*0.1}s;`}>
 
           <div class="flex flex-col sm:flex-row gap-6 items-start">
@@ -48,6 +59,8 @@ const founders = [
               <img
                 src={f.photo}
                 alt={`Foto de ${f.name}`}
+                width="160"
+                height="160"
                 class="w-20 h-20 rounded-2xl object-cover"
                 style="box-shadow:0 4px 16px rgba(0,0,0,0.12);"
                 loading="lazy"
@@ -98,7 +111,7 @@ const founders = [
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             </svg>
             <p class="text-xs text-[#64748B]">
-              El diagnóstico inicial lo hago yo directamente. Sin intermediarios, sin ventas — solo una conversación honesta sobre tu proceso.
+              {f.callout}
             </p>
           </div>
 
