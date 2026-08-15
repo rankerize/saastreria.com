@@ -1,6 +1,149 @@
 ---
-import HubPage from '../../components/HubPage.astro';
-import { industryPages } from '../../data/commercial-pages';
-const cards = industryPages.map((page) => ({ title: page.eyebrow, description: page.description, href: `/industrias/${page.slug}/` }));
+import Base from '../../layouts/Base.astro';
+import Navbar from '../../components/sections/Navbar.astro';
+import Footer from '../../components/sections/Footer.astro';
+import { industries } from '../../data/industry-usecases';
+
+const description = 'Explora 50 casos de uso concretos por industria: logística, manufactura, servicios B2B, salud y SST, y finanzas. Ve exactamente qué podemos construir para tu operación.';
 ---
-<HubPage eyebrow="Industrias" title="Soluciones adaptadas a la operación de cada sector" description="Aplicamos capacidades de software, datos, automatización e IA según los procesos, riesgos y responsabilidades de cada industria." seoTitle="Soluciones tecnológicas por industria | Saastreria" canonical="/industrias/" cards={cards} />
+
+<Base
+  title="¿Qué podemos construir para tu industria? | Saastreria"
+  description={description}
+  canonical="/industrias/"
+>
+  <Navbar />
+  <main id="contenido">
+
+    <!-- ── Hero ── -->
+    <section class="relative overflow-hidden bg-grid pt-32 pb-16 sm:pt-40 sm:pb-20">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-40 right-[-10rem] w-[40rem] h-[40rem] rounded-full bg-[#1B3461]/10 blur-3xl"></div>
+      </div>
+      <div class="section-shell relative max-w-4xl">
+        <span class="eyebrow">Por industria</span>
+        <h1 class="mt-6 text-4xl sm:text-6xl font-extrabold leading-[1.05]">
+          ¿Qué podemos construir para tu operación?
+        </h1>
+        <p class="mt-6 text-xl text-[#A9B6CA] leading-relaxed max-w-3xl">
+          Casos de uso concretos organizados por sector. Elige tu industria y ve exactamente qué sistemas, automatizaciones e integraciones podemos implementar.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── Tabs + Cards ── -->
+    <section class="py-12 sm:py-16 bg-[#0D0D14]" id="casos">
+      <div class="section-shell">
+
+        <!-- Tab bar -->
+        <div class="flex flex-wrap gap-2 mb-10" role="tablist" aria-label="Industrias">
+          {industries.map((ind, i) => (
+            <button
+              role="tab"
+              aria-selected={i === 0 ? 'true' : 'false'}
+              aria-controls={`panel-${ind.slug}`}
+              id={`tab-${ind.slug}`}
+              data-tab={ind.slug}
+              class:list={[
+                'tab-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all border',
+                i === 0
+                  ? 'bg-[#1B3461] border-[#1B3461] text-white'
+                  : 'bg-transparent border-white/10 text-[#A9B6CA] hover:border-white/20 hover:text-white'
+              ]}
+            >
+              {ind.label}
+            </button>
+          ))}
+        </div>
+
+        <!-- Panels -->
+        {industries.map((ind, i) => (
+          <div
+            role="tabpanel"
+            id={`panel-${ind.slug}`}
+            aria-labelledby={`tab-${ind.slug}`}
+            data-panel={ind.slug}
+            class:list={['tab-panel', i !== 0 && 'hidden']}
+          >
+            <p class="text-[#A9B6CA] text-base mb-8 max-w-2xl">{ind.description}</p>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {ind.useCases.map((uc) => (
+                <article class="commercial-card p-5 flex flex-col gap-3 group hover:-translate-y-1 transition-transform duration-200">
+                  <span class="text-2xl" aria-hidden="true">{uc.icon}</span>
+                  <div class="flex-1">
+                    <h3 class="font-bold text-sm leading-snug text-white">{uc.title}</h3>
+                    <p class="mt-2 text-xs text-[#94A3B8] leading-relaxed">{uc.description}</p>
+                  </div>
+                  <a
+                    href={`/diagnostico/?caso=${encodeURIComponent(uc.title)}`}
+                    class="mt-1 text-xs font-semibold text-[#818CF8] hover:text-white transition-colors flex items-center gap-1"
+                  >
+                    Construir esto <span aria-hidden="true">→</span>
+                  </a>
+                </article>
+              ))}
+            </div>
+
+            <!-- CTA por industria -->
+            <div class="mt-10 flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between border-t border-white/5 pt-8">
+              <p class="text-sm text-[#A9B6CA]">
+                ¿Ves algo que necesitas? Cuéntanos el proceso y lo evaluamos juntos.
+              </p>
+              <a href="/diagnostico/" class="btn-primary flex-shrink-0">
+                Solicitar diagnóstico
+              </a>
+            </div>
+          </div>
+        ))}
+
+      </div>
+    </section>
+
+    <!-- ── CTA final ── -->
+    <section class="py-20 sm:py-28">
+      <div class="section-shell text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold">
+          ¿No ves exactamente lo que necesitas?
+        </h2>
+        <p class="mt-4 text-[#A9B6CA] text-lg leading-relaxed">
+          Cada empresa tiene procesos propios. Cuéntanos el problema y diseñamos la solución correcta para tu operación.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="/diagnostico/" class="btn-primary">Solicitar diagnóstico</a>
+          <a href="/casos-de-exito/" class="btn-secondary">Ver casos reales →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Base>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
+  const panels = document.querySelectorAll<HTMLElement>('.tab-panel');
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+
+      // Actualizar tabs
+      tabs.forEach((t) => {
+        const active = t.dataset.tab === target;
+        t.setAttribute('aria-selected', String(active));
+        t.classList.toggle('bg-[#1B3461]', active);
+        t.classList.toggle('border-[#1B3461]', active);
+        t.classList.toggle('text-white', active);
+        t.classList.toggle('bg-transparent', !active);
+        t.classList.toggle('border-white/10', !active);
+        t.classList.toggle('text-[#A9B6CA]', !active);
+      });
+
+      // Mostrar/ocultar panels
+      panels.forEach((panel) => {
+        panel.classList.toggle('hidden', panel.dataset.panel !== target);
+      });
+    });
+  });
+</script>

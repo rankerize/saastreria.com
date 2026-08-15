@@ -2,9 +2,8 @@
 const path = Astro.url.pathname;
 const links = [
   { href: '/soluciones/', label: 'Soluciones' },
-  { href: '/industrias/', label: 'Industrias' },
+  { href: '/casos-de-exito/', label: 'Casos de éxito' },
   { href: '/productos/', label: 'Productos' },
-  { href: '/como-trabajamos/', label: 'Cómo trabajamos' },
   { href: '/blog/', label: 'Blog' },
 ];
 ---
@@ -53,7 +52,7 @@ const links = [
   <div id="mobile-menu" class="lg:hidden hidden border-t bg-white px-5 py-5" style="border-color: rgba(0,0,0,0.06);">
     <div class="flex flex-col gap-1">
       {links.map((link) => <a href={link.href} class="min-h-12 flex items-center rounded-lg px-3 text-[#64748B] hover:bg-black/[0.03] hover:text-[#0F0F1A]">{link.label}</a>)}
-      <a href="/nosotros/" class="min-h-12 flex items-center rounded-lg px-3 text-[#64748B] hover:bg-black/[0.03] hover:text-[#0F0F1A]">Nosotros</a>
+      <a href="/diagnostico/" class="min-h-12 flex items-center rounded-lg px-3 text-[#64748B] hover:bg-black/[0.03] hover:text-[#0F0F1A]">Diagnóstico</a>
       <a href="/diagnostico/" class="btn-primary mt-3 w-full">Solicitar diagnóstico</a>
     </div>
   </div>
