@@ -3,7 +3,8 @@ const founders = [
   {
     name:    'Orlando Hernández Manrique',
     role:    'Fundador & CEO · Saastreria',
-    photo:   '/orlando-hernandez.svg',
+    photo:   '/orlando-hernandez.jpg',
+    imgSize: 130,
     bio:     'Fundé Saastreria para que las empresas medianas dejen de adaptarse a software genérico. Me siento contigo a entender el proceso, defino la estrategia y acompaño la construcción hasta que la tecnología funciona en producción — a la medida del negocio, no al revés.',
     linkedin: 'https://www.linkedin.com/in/orlando-hernandez-manrique-53149110b/',
     tag:     'Estrategia · Producto · Ingeniería',
@@ -14,6 +15,7 @@ const founders = [
     name:    'César Jiménez',
     role:    'Co-fundador · Saastreria',
     photo:   '/cesar-jimenez.jpg',
+    imgSize: 800,
     bio:     'Construyo software que resuelve problemas operativos reales. Empecé Saastreria porque vi de primera mano cómo las empresas medianas pierden tiempo y dinero en procesos que se pueden automatizar, integrar o digitalizar — y decidí hacer algo al respecto.',
     linkedin: 'https://www.linkedin.com/in/cesarjimenezarcia/',
     tag:     'Software · IA · Datos',
@@ -59,8 +61,8 @@ const founders = [
               <img
                 src={f.photo}
                 alt={`Foto de ${f.name}`}
-                width="160"
-                height="160"
+                width={f.imgSize}
+                height={f.imgSize}
                 class="w-20 h-20 rounded-2xl object-cover"
                 style="box-shadow:0 4px 16px rgba(0,0,0,0.12);"
                 loading="lazy"
