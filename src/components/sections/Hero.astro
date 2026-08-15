@@ -1,173 +1,213 @@
 ---
 ---
-<section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-16" style="background: #FFFFFF;">
+<section class="relative min-h-screen flex items-center overflow-hidden pt-16" style="background:#FFFFFF;">
 
-  <!-- Subtle grid -->
-  <div class="absolute inset-0 bg-grid pointer-events-none" aria-hidden="true" style="opacity:0.5;"></div>
+  <!-- Glow navy muy sutil -->
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none" aria-hidden="true"
+       style="background:radial-gradient(ellipse at 80% 20%,rgba(27,52,97,0.06) 0%,transparent 65%);"></div>
+  <div class="absolute bottom-0 left-0 w-[400px] h-[400px] pointer-events-none" aria-hidden="true"
+       style="background:radial-gradient(ellipse at 20% 80%,rgba(191,162,85,0.05) 0%,transparent 65%);"></div>
 
-  <!-- Very subtle violet glow top-center -->
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] pointer-events-none" aria-hidden="true"
-       style="background:radial-gradient(ellipse at 50% 0%,rgba(99,102,241,0.07) 0%,transparent 65%);"></div>
-
-  <!-- ── Contenido centrado ── -->
-  <div class="relative z-10 w-full max-w-4xl mx-auto px-6 pt-20 pb-12 flex flex-col items-center text-center">
-
-    <!-- Badge eyebrow -->
-    <div class="animate-fade-up delay-1 inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8"
-         style="background:rgba(99,102,241,0.07);border:1px solid rgba(99,102,241,0.2);">
-      <span class="w-2 h-2 rounded-full bg-[#6366F1] live-dot"></span>
-      <span class="text-[#6366F1] text-xs font-semibold tracking-wide">Colombia ✦ LATAM — Software y productos digitales</span>
-    </div>
-
-    <!-- H1 -->
-    <h1 class="animate-fade-up delay-2 font-extrabold leading-[1.06] tracking-tight mb-6"
-        style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2.8rem,6vw,4.8rem);">
-      <span style="color:#0F0F1A;">Construimos software</span><br/>
-      <span style="color:#0F0F1A;">que transforma</span><br/>
-      <span class="gradient-text">operaciones reales.</span>
-    </h1>
-
-    <p class="animate-fade-up delay-3 text-lg leading-relaxed mb-10 max-w-xl" style="color:#374151;">
-      Diseñamos y construimos productos digitales — software a la medida, automatizaciones e inteligencia de datos para empresas en Colombia y LATAM.
-    </p>
-
-    <!-- CTAs -->
-    <div class="animate-fade-up delay-4 flex flex-col sm:flex-row gap-3 mb-12">
-      <a href="/diagnostico/"
-         class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl text-white font-bold text-sm transition-all duration-300 hover:-translate-y-0.5"
-         style="background:linear-gradient(135deg,#6366F1,#8B5CF6);box-shadow:0 8px 28px rgba(99,102,241,0.3);">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        Solicitar diagnóstico
-      </a>
-      <a href="/soluciones/"
-         class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5 btn-secondary">
-        Ver productos
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-    <!-- Chips -->
-    <div class="animate-fade-up delay-4 flex flex-wrap justify-center gap-2">
-      {[
-        {label:'Software a medida',    c:'#6366F1'},
-        {label:'IA Empresarial',       c:'#8B5CF6'},
-        {label:'Automatización',       c:'#EC4899'},
-        {label:'Datos e inteligencia', c:'#06B6D4'},
-        {label:'Colombia · LATAM',     c:'#10B981'},
-      ].map(ch=>(
-        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium cursor-default"
-              style={`background:${ch.c}10;border:1px solid ${ch.c}28;color:${ch.c};`}>
-          <span class="w-1.5 h-1.5 rounded-full" style={`background:${ch.c};`}></span>
-          {ch.label}
-        </span>
-      ))}
-    </div>
+  <!-- ── Marca de agua — identidad Saastreria ── -->
+  <div class="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+    <!-- S monograma gigante -->
+    <span style="
+      position:absolute;
+      font-family:'Cormorant Garamond',Georgia,serif;
+      font-size:clamp(420px,65vw,820px);
+      font-weight:700;
+      color:#1B3461;
+      opacity:0.025;
+      line-height:0.75;
+      right:-4%;
+      top:50%;
+      transform:translateY(-50%);
+      pointer-events:none;
+      user-select:none;
+    ">S</span>
+    <!-- Llaves de código — acento de identidad -->
+    <span style="
+      position:absolute;
+      font-family:'JetBrains Mono',monospace;
+      font-size:clamp(80px,13vw,160px);
+      font-weight:400;
+      color:#BFA255;
+      opacity:0.055;
+      top:8%;
+      left:1%;
+      pointer-events:none;
+      letter-spacing:-0.04em;
+    ">{}</span>
+    <!-- Aguja decorativa diagonal -->
+    <svg style="position:absolute;bottom:12%;right:48%;width:3px;height:120px;opacity:0.08;" viewBox="0 0 3 120" fill="none">
+      <line x1="1.5" y1="0" x2="1.5" y2="100" stroke="#BFA255" stroke-width="1.5" stroke-dasharray="5 4"/>
+      <path d="M0.5 98 L1.5 120 L2.5 98" fill="#BFA255"/>
+    </svg>
   </div>
 
-  <!-- ── Mockup Mac grande ── -->
-  <div class="relative z-10 w-full max-w-[860px] mx-auto px-6 pb-20 animate-fade-up delay-4 select-none">
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 py-12 grid lg:grid-cols-2 gap-12 items-center">
 
-    <!-- Badge flotante arriba-derecha -->
-    <div class="absolute -top-5 right-6 z-20 hidden sm:block" style="animation:floatBadge 4s ease-in-out infinite;">
-      <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white border shadow-md" style="border-color:rgba(16,185,129,0.25);box-shadow:0 4px 16px rgba(16,185,129,0.12);">
-        <span class="w-1.5 h-1.5 rounded-full bg-green-500 live-dot"></span>
-        <span class="text-xs font-semibold text-green-700">94% eficiencia operativa</span>
+    <!-- ── Columna izquierda: promesa ── -->
+    <div class="flex flex-col items-start text-left">
+
+      <!-- Badge eyebrow -->
+      <div class="animate-fade-up delay-1 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-6"
+           style="background:rgba(27,52,97,0.06);border:1px solid rgba(27,52,97,0.15);">
+        <span class="w-1.5 h-1.5 rounded-full live-dot" style="background:#BFA255;"></span>
+        <span class="text-[#1B3461] text-xs font-semibold tracking-wide">Colombia ✦ LATAM — Software a medida</span>
       </div>
-    </div>
 
-    <!-- Badge flotante abajo-izquierda -->
-    <div class="absolute -bottom-5 left-6 z-20 hidden sm:block" style="animation:floatBadge 5s ease-in-out infinite;animation-delay:-2.5s;">
-      <div class="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-white border shadow-md" style="border-color:rgba(99,102,241,0.2);box-shadow:0 4px 16px rgba(99,102,241,0.1);">
-        <div class="flex -space-x-1.5">
-          {['#6366F1','#8B5CF6','#EC4899'].map(c=>(
-            <div class="w-5 h-5 rounded-full border-2 border-white flex items-center justify-center" style={`background:${c};font-size:8px;`}>
-              <svg width="8" height="8" viewBox="0 0 24 24" fill="white"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
+      <!-- H1 -->
+      <h1 class="animate-fade-up delay-2 font-extrabold leading-[1.05] tracking-tight mb-5"
+          style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2.4rem,4.5vw,3.8rem);">
+        <span style="color:#0F0F1A;">Construimos software</span><br/>
+        <span style="color:#0F0F1A;">que transforma</span><br/>
+        <span class="gradient-text">operaciones reales.</span>
+      </h1>
+
+      <p class="animate-fade-up delay-3 text-base leading-relaxed mb-8 max-w-md" style="color:#4B5563;">
+        Software a la medida, automatizaciones e inteligencia de datos para empresas en Colombia y LATAM. Sin genéricos, sin plantillas.
+      </p>
+
+      <!-- CTAs -->
+      <div class="animate-fade-up delay-4 flex flex-col sm:flex-row gap-3 mb-8 w-full sm:w-auto">
+        <a href="/diagnostico/"
+           class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-white font-bold text-sm transition-all duration-300 hover:-translate-y-0.5"
+           style="background:#1B3461;box-shadow:0 6px 24px rgba(27,52,97,0.3);">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Solicitar diagnóstico gratis
+        </a>
+        <a href="/soluciones/"
+           class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5 btn-secondary">
+          Ver soluciones
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Social proof -->
+      <div class="animate-fade-up delay-4 flex items-center gap-3">
+        <div class="flex -space-x-2">
+          {['#1B3461','#2563EB','#BFA255'].map(c => (
+            <span class="w-7 h-7 rounded-full border-2 border-white inline-flex items-center justify-center" style={`background:${c};`}>
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="white"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </span>
           ))}
         </div>
-        <span class="text-xs font-semibold text-[#6366F1]">+248 usuarios activos</span>
+        <p class="text-xs text-[#94A3B8]">
+          Equipos en <span style="color:#1B3461;font-weight:600;">Colombia, México y España</span> confían en Saastreria
+        </p>
       </div>
+
     </div>
 
-    <!-- Ventana macOS -->
-    <div class="relative w-full rounded-2xl overflow-hidden hero-mac-window"
-         style="
-           transform: perspective(1200px) rotateX(3deg) rotateY(-1deg);
-           box-shadow:
-             0 2px 0 rgba(255,255,255,0.8) inset,
-             0 -1px 0 rgba(0,0,0,0.06) inset,
-             0 32px 80px rgba(99,102,241,0.15),
-             0 8px 32px rgba(0,0,0,0.1),
-             0 0 0 1px rgba(0,0,0,0.07);
-         ">
+    <!-- ── Columna derecha: mockup ── -->
+    <div class="relative select-none animate-fade-up delay-3">
 
-      <!-- Window chrome -->
-      <div class="flex items-center gap-0 px-4 py-3"
-           style="background:linear-gradient(180deg,#F8FAFC 0%,#F1F5F9 100%);border-bottom:1px solid rgba(0,0,0,0.07);">
-        <div class="flex items-center gap-2 mr-4">
-          <div class="w-3.5 h-3.5 rounded-full flex items-center justify-center group/dot" style="background:#FF5F57;box-shadow:0 0 0 0.5px rgba(0,0,0,0.15);">
-            <span class="opacity-0 group-hover/dot:opacity-100 text-[7px] font-black text-red-900">✕</span>
-          </div>
-          <div class="w-3.5 h-3.5 rounded-full" style="background:#FFBD2E;box-shadow:0 0 0 0.5px rgba(0,0,0,0.15);"></div>
-          <div class="w-3.5 h-3.5 rounded-full" style="background:#28C840;box-shadow:0 0 0 0.5px rgba(0,0,0,0.15);"></div>
-        </div>
-        <div class="flex-1 flex items-center justify-center">
-          <div class="flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-mono" style="background:rgba(0,0,0,0.05);color:#64748B;max-width:260px;">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <span class="truncate">coordrutas.saastreria.cloud</span>
-          </div>
-        </div>
-        <div class="flex items-center gap-1.5 text-xs font-mono text-green-600">
+      <!-- Badge flotante arriba-derecha -->
+      <div class="absolute -top-4 right-0 z-20 hidden sm:block" style="animation:floatBadge 4s ease-in-out infinite;">
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border shadow-sm" style="border-color:rgba(16,185,129,0.2);box-shadow:0 4px 16px rgba(16,185,129,0.1);">
           <span class="w-1.5 h-1.5 rounded-full bg-green-500 live-dot"></span>
-          LIVE
+          <span class="text-xs font-semibold text-green-700">94% eficiencia operativa</span>
         </div>
       </div>
 
-      <!-- Imagen -->
-      <div class="relative overflow-hidden">
-        <img src="/mockup-rutas.jpg"
-             alt="CoordRutas — dashboard logístico en tiempo real"
-             class="w-full block object-cover"
-             style="aspect-ratio:16/9;"
-             loading="eager" decoding="async"/>
+      <!-- Badge flotante abajo-izquierda -->
+      <div class="absolute -bottom-4 left-0 z-20 hidden sm:block" style="animation:floatBadge 5s ease-in-out infinite;animation-delay:-2.5s;">
+        <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white border shadow-sm" style="border-color:rgba(27,52,97,0.15);box-shadow:0 4px 16px rgba(27,52,97,0.08);">
+          <div class="flex -space-x-1.5">
+            {['#1B3461','#2563EB','#BFA255'].map(c=>(
+              <div class="w-4 h-4 rounded-full border border-white flex items-center justify-center" style={`background:${c};`}>
+              </div>
+            ))}
+          </div>
+          <span class="text-xs font-semibold text-[#1B3461]">+248 usuarios activos</span>
+        </div>
       </div>
 
-      <!-- Status bar -->
-      <div class="flex items-center gap-3 px-4 py-2.5" style="background:#F8FAFC;border-top:1px solid rgba(0,0,0,0.06);">
-        <span class="text-xs font-mono flex-1" style="color:#6366F1;" id="hero-typing-mac"></span>
-        <span class="typing-cursor text-xs font-mono" style="color:#8B5CF6;">|</span>
-        <span class="ml-auto text-xs font-mono text-[#94A3B8]">Python 3.12 · Prod</span>
+      <!-- Ventana macOS -->
+      <div class="hero-float-container">
+        <div class="relative w-full rounded-2xl overflow-hidden hero-mac-window"
+             style="
+               transform: perspective(1200px) rotateX(3deg) rotateY(-2deg);
+               box-shadow:
+                 0 2px 0 rgba(255,255,255,0.8) inset,
+                 0 -1px 0 rgba(0,0,0,0.06) inset,
+                 0 32px 80px rgba(27,52,97,0.12),
+                 0 8px 32px rgba(0,0,0,0.08),
+                 0 0 0 1px rgba(0,0,0,0.07);
+             ">
+
+          <!-- Window chrome -->
+          <div class="flex items-center px-4 py-2.5"
+               style="background:linear-gradient(180deg,#F8FAFC 0%,#F1F5F9 100%);border-bottom:1px solid rgba(0,0,0,0.07);">
+            <div class="flex items-center gap-1.5 mr-3">
+              <div class="w-3 h-3 rounded-full" style="background:#FF5F57;box-shadow:0 0 0 0.5px rgba(0,0,0,0.15);"></div>
+              <div class="w-3 h-3 rounded-full" style="background:#FFBD2E;box-shadow:0 0 0 0.5px rgba(0,0,0,0.15);"></div>
+              <div class="w-3 h-3 rounded-full" style="background:#28C840;box-shadow:0 0 0 0.5px rgba(0,0,0,0.15);"></div>
+            </div>
+            <div class="flex-1 flex items-center justify-center">
+              <div class="flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-mono" style="background:rgba(0,0,0,0.05);color:#64748B;max-width:220px;">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#1B3461" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                <span class="truncate">coordrutas.saastreria.cloud</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 text-xs font-mono text-green-600">
+              <span class="w-1.5 h-1.5 rounded-full bg-green-500 live-dot"></span>
+              LIVE
+            </div>
+          </div>
+
+          <!-- Imagen -->
+          <div class="relative overflow-hidden">
+            <img src="/mockup-rutas.jpg"
+                 alt="CoordRutas — dashboard logístico en tiempo real"
+                 class="w-full block object-cover"
+                 style="aspect-ratio:16/9;"
+                 loading="eager" decoding="async"/>
+          </div>
+
+          <!-- Status bar -->
+          <div class="flex items-center gap-3 px-4 py-2" style="background:#F8FAFC;border-top:1px solid rgba(0,0,0,0.06);">
+            <span class="text-xs font-mono flex-1" style="color:#1B3461;" id="hero-typing-mac"></span>
+            <span class="typing-cursor text-xs font-mono" style="color:#BFA255;">|</span>
+            <span class="ml-auto text-xs font-mono text-[#94A3B8]">Python 3.12 · Prod</span>
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
 
   <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 opacity-25">
-    <span class="text-[10px] font-mono tracking-widest uppercase text-[#94A3B8]">scroll</span>
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 opacity-20">
     <div class="animate-bounce">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F1A" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1B3461" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
     </div>
   </div>
+
 </section>
 
 <style>
   @keyframes floatBadge {
     0%,100% { transform:translateY(0px); }
-    50%      { transform:translateY(-8px); }
+    50%      { transform:translateY(-7px); }
   }
-  .hero-mac-window { transition: transform 0.6s cubic-bezier(0.23,1,0.32,1), box-shadow 0.6s ease; }
-  .hero-mac-window:hover {
-    transform: perspective(1200px) rotateX(1.5deg) rotateY(0deg) !important;
-    box-shadow:
-      0 2px 0 rgba(255,255,255,0.8) inset,
-      0 -1px 0 rgba(0,0,0,0.06) inset,
-      0 50px 120px rgba(99,102,241,0.2),
-      0 12px 40px rgba(0,0,0,0.12),
-      0 0 0 1px rgba(0,0,0,0.07) !important;
+  @keyframes floatMockup {
+    0%,100% { transform: translateY(0px); }
+    50%      { transform: translateY(-8px); }
+  }
+  .hero-float-container {
+    animation: floatMockup 6s ease-in-out 1.2s infinite;
+    will-change: transform;
+  }
+  .hero-mac-window {
+    transition: box-shadow 0.5s ease;
+    will-change: transform;
   }
 </style>
 
 <script>
+  // ── Typing effect ──
   const lines = [
     '> Construyendo CoordRutas v2.4...',
     '> Optimización de rutas IA activa ✓',
@@ -189,5 +229,43 @@
       setTimeout(tick, deleting?28:48);
     }
     setTimeout(tick, 1200);
+  }
+
+  // ── Mouse-follow parallax en el mockup ──
+  const heroSection = document.querySelector<HTMLElement>('section.min-h-screen');
+  const macWindow   = document.querySelector<HTMLElement>('.hero-mac-window');
+
+  if (heroSection && macWindow) {
+    const BASE_RX = 3, BASE_RY = -2;
+    let targetRX = BASE_RX, targetRY = BASE_RY;
+    let currentRX = BASE_RX, currentRY = BASE_RY;
+    const SHADOW_DEFAULT = `0 2px 0 rgba(255,255,255,0.8) inset,0 -1px 0 rgba(0,0,0,0.06) inset,0 32px 80px rgba(27,52,97,0.12),0 8px 32px rgba(0,0,0,0.08),0 0 0 1px rgba(0,0,0,0.07)`;
+    const SHADOW_HOVER   = `0 2px 0 rgba(255,255,255,0.8) inset,0 -1px 0 rgba(0,0,0,0.06) inset,0 50px 120px rgba(27,52,97,0.18),0 12px 40px rgba(0,0,0,0.1),0 0 0 1px rgba(0,0,0,0.07)`;
+    let isHovering = false;
+
+    function rafLoop() {
+      currentRX += (targetRX - currentRX) * 0.06;
+      currentRY += (targetRY - currentRY) * 0.06;
+      macWindow.style.transform =
+        `perspective(1200px) rotateX(${currentRX.toFixed(3)}deg) rotateY(${currentRY.toFixed(3)}deg)`;
+      requestAnimationFrame(rafLoop);
+    }
+    rafLoop();
+
+    heroSection.addEventListener('mousemove', (e: MouseEvent) => {
+      const rect = heroSection.getBoundingClientRect();
+      const dx = (e.clientX - rect.left  - rect.width  / 2) / (rect.width  / 2);
+      const dy = (e.clientY - rect.top   - rect.height / 2) / (rect.height / 2);
+      targetRX = BASE_RX + (-dy * 3);
+      targetRY = BASE_RY + ( dx * 5);
+      if (!isHovering) { isHovering = true; macWindow.style.boxShadow = SHADOW_HOVER; }
+    }, { passive: true });
+
+    heroSection.addEventListener('mouseleave', () => {
+      isHovering = false;
+      targetRX = BASE_RX;
+      targetRY = BASE_RY;
+      macWindow.style.boxShadow = SHADOW_DEFAULT;
+    });
   }
 </script>

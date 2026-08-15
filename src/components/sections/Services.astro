@@ -29,10 +29,10 @@ const icons: Record<string, string> = {
 
     <div class="grid md:grid-cols-2 gap-6">
       {services.map((s) => (
-        <div class="commercial-card rounded-2xl p-6 hover:border-[#6366F1]/25 transition-all hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(99,102,241,0.08)] group relative overflow-hidden">
+        <div class="commercial-card rounded-2xl p-6 hover:border-[#1B3461]/25 transition-all hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(27,52,97,0.08)] group relative overflow-hidden">
           <!-- Glow corner -->
           <div class="absolute top-0 right-0 w-32 h-32 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-               style="background: radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%); transform: translate(30%, -30%);">
+               style="background: radial-gradient(circle, rgba(27,52,97,0.06) 0%, transparent 70%); transform: translate(30%, -30%);">
           </div>
 
           {s.badge && (
@@ -41,8 +41,8 @@ const icons: Record<string, string> = {
             </span>
           )}
 
-          <div class="w-10 h-10 rounded-xl bg-[#6366F1]/08 border border-[#6366F1]/15 flex items-center justify-center mb-4" style="background:rgba(99,102,241,0.07);">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="1.5" set:html={icons[s.icon]} />
+          <div class="w-10 h-10 rounded-xl bg-[#1B3461]/08 border border-[#1B3461]/15 flex items-center justify-center mb-4" style="background:rgba(27,52,97,0.07);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B3461" stroke-width="1.5" set:html={icons[s.icon]} />
           </div>
 
           <h3 class="font-bold text-[#0F0F1A] mb-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">{s.title}</h3>
@@ -56,7 +56,7 @@ const icons: Record<string, string> = {
             ))}
           </div>
 
-          <a href={s.href} class="inline-flex items-center gap-1 mt-4 text-sm text-[#6366F1] hover:text-[#4F46E5] transition-colors font-medium">
+          <a href={s.href} class="inline-flex items-center gap-1 mt-4 text-sm text-[#1B3461] hover:text-[#132848] transition-colors font-medium">
             Evaluar esta solución
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7"/>

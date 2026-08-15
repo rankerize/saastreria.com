@@ -16,13 +16,13 @@ const schema = {
   <Navbar />
   <main id="contenido">
     <section class="relative pt-36 sm:pt-44 pb-20 sm:pb-28 bg-grid overflow-hidden">
-      <div class="absolute -top-48 left-1/2 -translate-x-1/2 w-[50rem] h-[30rem] bg-[#6366F1]/10 blur-3xl rounded-full pointer-events-none"></div>
+      <div class="absolute -top-48 left-1/2 -translate-x-1/2 w-[50rem] h-[30rem] bg-[#1B3461]/10 blur-3xl rounded-full pointer-events-none"></div>
       <div class="section-shell relative text-center"><span class="eyebrow">{eyebrow}</span><h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight max-w-5xl mx-auto">{title}</h1><p class="mt-6 text-lg sm:text-xl text-[#A9B6CA] leading-relaxed max-w-3xl mx-auto">{description}</p><div class="mt-9 flex flex-col sm:flex-row gap-3 justify-center"><a href="/diagnostico/" class="btn-primary">Solicitar diagnóstico</a><a href="#opciones" class="btn-secondary">Explorar opciones</a></div></div>
     </section>
     <section id="opciones" class="py-20 sm:py-28 scroll-mt-20">
-      <div class="section-shell"><div class="grid md:grid-cols-2 gap-6">{cards.map((card, index) => <a href={card.href} class="commercial-card p-7 sm:p-8 group transition-transform hover:-translate-y-1"><span class="text-xs font-mono text-[#818CF8]">{card.label || `0${index + 1}`}</span><h2 class="mt-5 text-2xl font-bold group-hover:text-[#A5B4FC] transition-colors">{card.title}</h2><p class="mt-4 text-[#A9B6CA] leading-relaxed">{card.description}</p><span class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#818CF8]">Explorar <span aria-hidden="true">→</span></span></a>)}</div></div>
+      <div class="section-shell"><div class="grid md:grid-cols-2 gap-6">{cards.map((card, index) => <a href={card.href} class="commercial-card p-7 sm:p-8 group transition-transform hover:-translate-y-1"><span class="text-xs font-mono text-[#1B3461]">{card.label || `0${index + 1}`}</span><h2 class="mt-5 text-2xl font-bold group-hover:text-[#2563EB] transition-colors">{card.title}</h2><p class="mt-4 text-[#A9B6CA] leading-relaxed">{card.description}</p><span class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#1B3461]">Explorar <span aria-hidden="true">→</span></span></a>)}</div></div>
     </section>
-    <section class="pb-20 sm:pb-28"><div class="section-shell"><div class="commercial-card p-8 sm:p-12 text-center bg-gradient-to-br from-[#6366F1]/15 to-[#F59E0B]/8"><h2 class="text-3xl sm:text-4xl font-bold">¿No sabes cuál es el mejor punto de partida?</h2><p class="mt-4 text-[#A9B6CA] max-w-2xl mx-auto">Analizamos tu operación y priorizamos la oportunidad con mejor relación entre impacto, esfuerzo y riesgo.</p><a href="/diagnostico/" class="btn-primary mt-8">Evaluar mi empresa</a></div></div></section>
+    <section class="pb-20 sm:pb-28"><div class="section-shell"><div class="commercial-card p-8 sm:p-12 text-center bg-gradient-to-br from-[#1B3461]/15 to-[#F59E0B]/8"><h2 class="text-3xl sm:text-4xl font-bold">¿No sabes cuál es el mejor punto de partida?</h2><p class="mt-4 text-[#A9B6CA] max-w-2xl mx-auto">Analizamos tu operación y priorizamos la oportunidad con mejor relación entre impacto, esfuerzo y riesgo.</p><a href="/diagnostico/" class="btn-primary mt-8">Evaluar mi empresa</a></div></div></section>
   </main>
   <Footer />
 </Base>

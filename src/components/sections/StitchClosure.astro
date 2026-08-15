@@ -1,0 +1,181 @@
+---
+const steps = [
+  {
+    n: '01',
+    icon: `<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>`,
+    title: 'Toma de medidas',
+    craft: 'Diagnóstico',
+    desc: 'Antes de diseñar, entendemos tu operación, tus sistemas y tus objetivos reales. No asumimos — preguntamos.',
+  },
+  {
+    n: '02',
+    icon: `<path d="M4 5a1 1 0 011-1h4a1 1 0 010 2H5a1 1 0 01-1-1zm0 6a1 1 0 011-1h14a1 1 0 010 2H5a1 1 0 01-1-1zm0 6a1 1 0 011-1h10a1 1 0 010 2H5a1 1 0 01-1-1z"/>`,
+    title: 'El patrón',
+    craft: 'Arquitectura',
+    desc: 'Diseñamos la estructura exacta para tu realidad. Sin plantillas, sin soluciones genéricas que sobren o falten.',
+  },
+  {
+    n: '03',
+    icon: `<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>`,
+    title: 'La confección',
+    craft: 'Construcción',
+    desc: 'Cosemos cada módulo con precisión. Cada línea de código responde a un proceso real de tu empresa.',
+  },
+  {
+    n: '04',
+    icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>`,
+    title: 'El ajuste final',
+    craft: 'Refinamiento',
+    desc: 'Ajustamos hasta que quede perfecto. Y seguimos contigo después — porque un traje bien hecho se cuida.',
+  },
+];
+---
+
+<section id="filosofia" class="relative overflow-hidden py-28 px-6" style="background:#FFFFFF;">
+
+  <!-- ── Costura superior (body → sección) ── -->
+  <div class="absolute top-0 left-0 right-0 pointer-events-none" aria-hidden="true">
+    <div style="height:1px;background:repeating-linear-gradient(90deg,transparent 0,transparent 7px,rgba(191,162,85,0.35) 7px,rgba(191,162,85,0.35) 14px);"></div>
+    <!-- Aguja atravesando la costura superior -->
+    <div class="absolute left-1/2 -translate-x-1/2 -top-3" style="z-index:20;">
+      <svg width="14" height="28" viewBox="0 0 14 28" fill="none">
+        <ellipse cx="7" cy="5" rx="5" ry="3.5" stroke="#BFA255" stroke-width="1.3" fill="rgba(191,162,85,0.1)"/>
+        <ellipse cx="7" cy="5" rx="2.5" ry="1.8" fill="#0A0A0A" opacity="0.8"/>
+        <line x1="7" y1="8.5" x2="7" y2="23" stroke="#BFA255" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M5 21 L7 28 L9 21" fill="#BFA255"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ── Marca de agua S ── -->
+  <div class="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+    <span style="position:absolute;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(280px,45vw,600px);font-weight:700;color:#1B3461;opacity:0.022;line-height:0.75;left:-4%;top:50%;transform:translateY(-50%);pointer-events:none;">S</span>
+  </div>
+
+  <div class="max-w-5xl mx-auto relative z-10">
+
+    <!-- ── Encabezado centrado con aguja grande ── -->
+    <div class="flex flex-col items-center text-center mb-20 scroll-reveal">
+
+      <!-- Aguja grande animada -->
+      <div class="relative mb-10" style="animation:floatNeedle 4s ease-in-out infinite;">
+        <!-- Thread saliendo del ojo hacia la izquierda -->
+        <svg style="position:absolute;top:18px;right:calc(100% - 2px);pointer-events:none;" width="120" height="24" viewBox="0 0 120 24" fill="none">
+          <path d="M120 12 Q90 12 65 5 Q40 -2 20 8 Q8 13 0 10" stroke="#BFA255" stroke-width="1.3" stroke-dasharray="5 4" opacity="0.55" stroke-linecap="round" fill="none"/>
+        </svg>
+        <svg width="40" height="220" viewBox="0 0 40 220" fill="none">
+          <defs>
+            <linearGradient id="ngc" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#906D22"/>
+              <stop offset="30%" stop-color="#EDD080"/>
+              <stop offset="60%" stop-color="#C8963C"/>
+              <stop offset="100%" stop-color="#7A5818"/>
+            </linearGradient>
+            <filter id="nf" x="-20%" y="-5%" width="140%" height="110%">
+              <feGaussianBlur stdDeviation="0.5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur"/>
+            </filter>
+          </defs>
+          <!-- Cuerpo superior (sección del ojo) -->
+          <rect x="10" y="6" width="20" height="36" rx="10" fill="url(#ngc)" filter="url(#nf)"/>
+          <!-- Ojo de la aguja -->
+          <ellipse cx="20" cy="22" rx="5.5" ry="8" fill="#0A0A12" opacity="0.88"/>
+          <ellipse cx="20" cy="20" rx="2" ry="3" fill="#BFA255" opacity="0.22"/>
+          <!-- Cuerpo que afina hacia la punta -->
+          <path d="M10 40 Q8 100 10 170 Q12 196 20 218 Q28 196 30 170 Q32 100 30 40 Z" fill="url(#ngc)" filter="url(#nf)"/>
+          <!-- Brillo lateral -->
+          <line x1="16" y1="55" x2="15" y2="165" stroke="rgba(255,255,255,0.3)" stroke-width="1.8" stroke-linecap="round"/>
+          <!-- Destello de punta -->
+          <ellipse cx="20" cy="218" rx="2.5" ry="1" fill="#BFA255" opacity="0.5"/>
+        </svg>
+      </div>
+
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-5"
+           style="background:rgba(27,52,97,0.06);border:1px solid rgba(27,52,97,0.15);">
+        <span class="w-1.5 h-1.5 rounded-full live-dot" style="background:#BFA255;"></span>
+        <span class="text-[#1B3461] text-xs font-semibold tracking-wide" style="font-family:'JetBrains Mono',monospace;">filosofía · construcción a medida</span>
+      </div>
+
+      <h2 class="text-3xl sm:text-5xl font-extrabold leading-[1.06] tracking-tight mb-6 mt-3"
+          style="font-family:'Plus Jakarta Sans',sans-serif;color:#0F0F1A;">
+        Como un sastre,<br/>
+        cosemos cada módulo<br/>
+        <span class="gradient-text">a la medida exacta.</span>
+      </h2>
+
+      <p class="text-[#374151] max-w-2xl leading-relaxed text-base sm:text-lg">
+        <em style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15em;font-weight:600;color:#1B3461;font-style:normal;">Saastreria</em> nació de <em style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.05em;color:#1B3461;font-weight:600;font-style:italic;">sastrería</em> — el arte de construir piezas únicas para quien las usa.
+        No fabricamos software en serie. Tomamos medidas exactas, diseñamos el patrón correcto y cosemos cada pieza hasta que quede perfecta para tu operación.
+      </p>
+    </div>
+
+    <!-- ── Pasos: analogía del sastre ── -->
+    <div class="relative">
+
+      <!-- Hilo que conecta los pasos (visible en desktop) -->
+      <div class="absolute top-[52px] left-[calc(12.5%-2px)] right-[calc(12.5%-2px)] hidden lg:block pointer-events-none" aria-hidden="true"
+           style="height:1px;background:repeating-linear-gradient(90deg,transparent 0,transparent 8px,rgba(191,162,85,0.28) 8px,rgba(191,162,85,0.28) 16px);"></div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {steps.map((s, i) => (
+          <div class="scroll-reveal flex flex-col items-center text-center group" style={`transition-delay:${i*0.1}s;`}>
+
+            <!-- Ícono con número (simula el paso de la aguja) -->
+            <div class="relative mb-5">
+              <!-- Nodo del hilo -->
+              <div class="w-[104px] h-[104px] rounded-2xl flex flex-col items-center justify-center relative"
+                   style="background:rgba(27,52,97,0.04);border:1.5px solid rgba(191,162,85,0.22);box-shadow:0 2px 12px rgba(27,52,97,0.06);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1B3461" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" set:html={s.icon}/>
+                <span class="mt-1.5 text-[10px] font-bold tracking-widest" style="font-family:'JetBrains Mono',monospace;color:#BFA255;">{s.n}</span>
+              </div>
+              <!-- Punto de costura (donde el hilo atraviesa) -->
+              <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border-2 border-white flex items-center justify-center"
+                   style="background:#FFFFFF;box-shadow:0 0 0 2px rgba(191,162,85,0.4);" aria-hidden="true">
+                <div class="w-1.5 h-1.5 rounded-full" style="background:#BFA255;"></div>
+              </div>
+            </div>
+
+            <!-- Texto -->
+            <p class="text-[10px] font-bold tracking-widest uppercase mb-1" style="font-family:'JetBrains Mono',monospace;color:#BFA255;">{s.craft}</p>
+            <h3 class="font-extrabold text-base text-[#0F0F1A] leading-tight mb-2" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.25rem;">{s.title}</h3>
+            <p class="text-sm text-[#64748B] leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- ── Quote / cierre ── -->
+    <div class="mt-20 text-center scroll-reveal">
+      <blockquote class="relative inline-block max-w-2xl">
+        <span class="absolute -top-6 left-0 text-[80px] leading-none font-serif" style="color:rgba(191,162,85,0.15);font-family:'Cormorant Garamond',Georgia,serif;">"</span>
+        <p class="text-lg sm:text-xl font-medium leading-relaxed relative z-10" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.1rem,2.5vw,1.4rem);color:#1B3461;">
+          El resultado no es un software más. Es tu operación, tejida con precisión, lista para escalar.
+        </p>
+        <span class="absolute -bottom-10 right-0 text-[80px] leading-none font-serif" style="color:rgba(191,162,85,0.15);font-family:'Cormorant Garamond',Georgia,serif;">"</span>
+      </blockquote>
+    </div>
+
+  </div>
+
+  <!-- ── Costura inferior (sección → footer) ── -->
+  <div class="absolute bottom-0 left-0 right-0 pointer-events-none" aria-hidden="true">
+    <div style="height:1px;background:repeating-linear-gradient(90deg,transparent 0,transparent 7px,rgba(191,162,85,0.35) 7px,rgba(191,162,85,0.35) 14px);"></div>
+    <!-- Aguja descendiendo hacia el footer -->
+    <div class="absolute left-1/2 -translate-x-1/2 -bottom-3" style="z-index:20;">
+      <svg width="14" height="28" viewBox="0 0 14 28" fill="none" style="transform:rotate(180deg);">
+        <ellipse cx="7" cy="5" rx="5" ry="3.5" stroke="#BFA255" stroke-width="1.3" fill="rgba(191,162,85,0.1)"/>
+        <ellipse cx="7" cy="5" rx="2.5" ry="1.8" fill="#0A0A0A" opacity="0.8"/>
+        <line x1="7" y1="8.5" x2="7" y2="23" stroke="#BFA255" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M5 21 L7 28 L9 21" fill="#BFA255"/>
+      </svg>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  @keyframes floatNeedle {
+    0%,100% { transform: translateY(0px); }
+    50%      { transform: translateY(-10px); }
+  }
+</style>

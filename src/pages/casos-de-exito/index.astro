@@ -1,6 +1,143 @@
 ---
-import Base from '../../layouts/Base.astro'; import Navbar from '../../components/sections/Navbar.astro'; import Footer from '../../components/sections/Footer.astro';
+import Base from '../../layouts/Base.astro';
+import Navbar from '../../components/sections/Navbar.astro';
+import Footer from '../../components/sections/Footer.astro';
+import { cases } from '../../data/cases';
+
+const description =
+  'Casos documentados donde combinamos software, automatización, datos e IA para resolver procesos empresariales completos. Solo publicamos lo que podemos demostrar.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Casos de éxito | Saastreria',
+  url: 'https://saastreria.cloud/casos-de-exito/',
+  description,
+  publisher: { '@id': 'https://saastreria.cloud/#organization' },
+};
 ---
-<Base title="Casos de éxito y demostraciones | Saastreria" description="Conoce cómo abordamos problemas empresariales de software, datos y automatización. Los casos verificables se publican con autorización del cliente." canonical="/casos-de-exito/">
-  <Navbar /><main id="contenido"><section class="pt-36 pb-20 bg-grid"><div class="section-shell max-w-4xl"><span class="eyebrow">Evidencia</span><h1 class="mt-6 text-4xl sm:text-6xl font-extrabold">Resultados que se puedan demostrar</h1><p class="mt-6 text-xl text-[#A9B6CA] leading-relaxed">No publicamos cifras ni nombres de clientes sin autorización. Esta sección reunirá casos verificados con contexto, proceso, alcance y resultados medidos.</p></div></section><section class="py-20 bg-[#0D0D14]"><div class="section-shell"><div class="commercial-card p-8 sm:p-12 grid lg:grid-cols-2 gap-10"><div><span class="eyebrow">Cómo documentamos un caso</span><h2 class="mt-5 text-3xl font-bold">Problema, intervención y evidencia</h2></div><div class="space-y-4">{['Situación inicial y restricciones', 'Decisiones de arquitectura y proceso', 'Implementación por etapas', 'Métricas antes y después', 'Aprendizajes y próximos pasos'].map((item, i) => <div class="flex gap-4"><span class="text-[#818CF8] font-mono">0{i + 1}</span><span class="text-[#CBD5E1]">{item}</span></div>)}</div></div></div></section><section class="py-20 text-center"><h2 class="text-3xl font-bold">¿Quieres evaluar un caso de tu empresa?</h2><a href="/diagnostico/" class="btn-primary mt-8">Conversar con el equipo</a></section></main><Footer />
+
+<Base
+  title="Casos de éxito | Saastreria"
+  description={description}
+  canonical="/casos-de-exito/"
+  schemas={[schema]}
+>
+  <Navbar />
+  <main id="contenido">
+
+    <!-- ── Hero ── -->
+    <section class="relative overflow-hidden bg-grid pt-32 pb-20 sm:pt-40 sm:pb-28">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-40 right-[-12rem] w-[42rem] h-[42rem] rounded-full bg-[#1B3461]/10 blur-3xl"></div>
+      </div>
+      <div class="section-shell relative max-w-4xl">
+        <span class="eyebrow">Evidencia</span>
+        <h1 class="mt-6 text-4xl sm:text-6xl font-extrabold leading-[1.05]">
+          Resultados que se pueden demostrar
+        </h1>
+        <p class="mt-6 text-xl text-[#A9B6CA] leading-relaxed max-w-3xl">
+          Solo documentamos lo que ocurrió: el proceso, las decisiones, la implementación y el cambio que produjo. Sin cifras inventadas ni clientes genéricos.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── Casos ── -->
+    <section class="py-20 bg-[#0D0D14]">
+      <div class="section-shell">
+        <div class="grid gap-8">
+          {cases.map((study) => (
+            <article class="commercial-card p-8 sm:p-10 grid lg:grid-cols-[1fr_auto] gap-8 items-center group hover:-translate-y-1 transition-transform duration-300">
+              <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#F59E0B]/30 bg-[#F59E0B]/8 mb-5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#FBBF24]"></span>
+                  <span class="text-xs font-semibold text-[#FBBF24] tracking-wide">{study.sector}</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-bold leading-snug">{study.title}</h2>
+                <p class="mt-4 text-[#A9B6CA] leading-relaxed max-w-2xl">{study.description}</p>
+                <div class="mt-6 flex flex-wrap gap-2">
+                  {study.technologies.slice(0, 5).map((tech) => (
+                    <span class="px-3 py-1 text-xs font-medium rounded-full border border-white/10 bg-white/5 text-[#CBD5E1]">
+                      {tech}
+                    </span>
+                  ))}
+                  {study.technologies.length > 5 && (
+                    <span class="px-3 py-1 text-xs font-medium rounded-full border border-white/10 bg-white/5 text-[#718096]">
+                      +{study.technologies.length - 5} más
+                    </span>
+                  )}
+                </div>
+                <ul class="mt-6 grid sm:grid-cols-2 gap-2.5">
+                  {study.outcomes.slice(0, 4).map((outcome) => (
+                    <li class="flex gap-2.5 items-start text-sm text-[#CBD5E1]">
+                      <span class="mt-0.5 text-green-400 flex-shrink-0">✓</span>
+                      <span>{outcome.label}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div class="flex-shrink-0">
+                <a
+                  href={`/casos-de-exito/${study.slug}/`}
+                  class="btn-primary whitespace-nowrap"
+                >
+                  Ver caso completo →
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Cómo documentamos ── -->
+    <section class="py-20">
+      <div class="section-shell grid lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <span class="eyebrow">Nuestro estándar</span>
+          <h2 class="mt-5 text-3xl sm:text-4xl font-bold">
+            Cómo documentamos un caso
+          </h2>
+          <p class="mt-5 text-[#A9B6CA] leading-relaxed">
+            No publicamos nombres ni cifras sin autorización del cliente. Cada caso incluye contexto suficiente para que se pueda evaluar la relevancia para una situación similar.
+          </p>
+        </div>
+        <div class="space-y-4">
+          {[
+            ['01', 'Situación inicial y restricciones', 'El punto de partida: qué estaba fallando, con qué sistemas, con qué equipo.'],
+            ['02', 'Decisiones de arquitectura y proceso', 'Qué evaluamos, qué descartamos y por qué.'],
+            ['03', 'Implementación por etapas', 'Cómo se construyó, en qué orden y qué se validó en cada fase.'],
+            ['04', 'Impacto medido', 'Qué cambió y cómo se puede verificar.'],
+            ['05', 'Aprendizajes', 'Lo que hubiera sido diferente y lo que aplicamos en proyectos posteriores.'],
+          ].map(([num, title, desc]) => (
+            <div class="commercial-card p-5 flex gap-4">
+              <span class="text-[#1B3461] font-mono text-xs flex-shrink-0 mt-0.5">{num}</span>
+              <div>
+                <p class="font-semibold text-sm">{title}</p>
+                <p class="mt-1 text-xs text-[#94A3B8] leading-relaxed">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="py-20 sm:py-28 bg-[#0D0D14]">
+      <div class="section-shell text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold">
+          ¿Quieres evaluar un caso de tu empresa?
+        </h2>
+        <p class="mt-4 text-[#A9B6CA] text-lg leading-relaxed">
+          Cuéntanos el proceso, los sistemas involucrados y el resultado que buscas. Analizamos si tiene sentido construir algo juntos.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="/diagnostico/" class="btn-primary">Conversar con el equipo</a>
+          <a href="/como-trabajamos/" class="btn-secondary">Cómo trabajamos →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
 </Base>

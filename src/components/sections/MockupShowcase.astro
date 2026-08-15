@@ -10,11 +10,11 @@ const slides = [
     desc: 'Logística · Distribución · Última milla',
     footer: 'GPS en tiempo real · optimización con IA · trazabilidad',
     stat: '94% eficiencia',
-    statColor: '#6366F1',
-    accentColor: 'rgba(99,102,241,0.15)',
-    iconColor: '#6366F1',
-    iconBg: 'rgba(99,102,241,0.08)',
-    iconBorder: 'rgba(99,102,241,0.18)',
+    statColor: '#1B3461',
+    accentColor: 'rgba(27,52,97,0.15)',
+    iconColor: '#1B3461',
+    iconBg: 'rgba(27,52,97,0.08)',
+    iconBorder: 'rgba(27,52,97,0.15)',
     icon: `<path d="M3 12h3l3-9 4 18 3-9h3" stroke-linecap="round" stroke-linejoin="round"/>`,
   },
   {
@@ -71,24 +71,24 @@ const slides = [
   {
     id: 'portal',
     label: 'Portal B2B — Pedidos y Facturación',
-    live: { text: '12 pedidos activos', color: 'purple' },
+    live: { text: '12 pedidos activos', color: 'navy' },
     image: '/mockup-portal.jpg',
     alt: 'Portal B2B empresarial — gestión de pedidos y facturas',
     title: 'Portal Empresarial B2B',
     desc: 'Pedidos · Facturas · Clientes corporativos',
     footer: 'Self-service · historial · descarga de documentos',
     stat: '$48.2M este mes',
-    statColor: '#7C3AED',
-    accentColor: 'rgba(139,92,246,0.12)',
-    iconColor: '#7C3AED',
-    iconBg: 'rgba(139,92,246,0.08)',
-    iconBorder: 'rgba(139,92,246,0.18)',
+    statColor: '#1B3461',
+    accentColor: 'rgba(27,52,97,0.12)',
+    iconColor: '#1B3461',
+    iconBg: 'rgba(27,52,97,0.08)',
+    iconBorder: 'rgba(27,52,97,0.15)',
     icon: `<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>`,
   },
 ];
 ---
 
-<section id="productos-demo" class="py-24 overflow-hidden" style="background:#F2F2F7;border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);">
+<section id="productos-demo" class="py-24 overflow-hidden" style="background:#FFFFFF;border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);">
   <div class="max-w-7xl mx-auto px-6">
 
     <!-- Header -->
@@ -108,9 +108,9 @@ const slides = [
   <!-- ── Carrusel horizontal (full-width) ── -->
   <div class="relative">
     <!-- Fade left -->
-    <div class="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style="background: linear-gradient(90deg, #F2F2F7 0%, transparent 100%);"></div>
+    <div class="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style="background: linear-gradient(90deg, #FFFFFF 0%, transparent 100%);"></div>
     <!-- Fade right -->
-    <div class="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style="background: linear-gradient(270deg, #F2F2F7 0%, transparent 100%);"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style="background: linear-gradient(270deg, #FFFFFF 0%, transparent 100%);"></div>
 
     <!-- Track -->
     <div
@@ -136,13 +136,13 @@ const slides = [
                 s.live.color === 'green'  ? 'text-green-600' :
                 s.live.color === 'amber'  ? 'text-amber-600' :
                 s.live.color === 'blue'   ? 'text-blue-600' :
-                'text-purple-600'
+                'text-[#1B3461]'
               }`}>
                 <span class={`w-1.5 h-1.5 rounded-full live-dot ${
                   s.live.color === 'green'  ? 'bg-green-500' :
                   s.live.color === 'amber'  ? 'bg-amber-500' :
                   s.live.color === 'blue'   ? 'bg-blue-500' :
-                  'bg-purple-500'
+                  'bg-[#1B3461]'
                 }`}></span>
                 {s.live.text}
               </span>
@@ -191,7 +191,7 @@ const slides = [
     <div class="flex items-center gap-2" id="carousel-dots">
       {slides.map((_, i) => (
         <button
-          class={`carousel-dot rounded-full transition-all duration-300 ${i === 0 ? 'w-6 h-2 bg-[#6366F1]' : 'w-2 h-2 hover:bg-[rgba(0,0,0,0.2)]'}`}
+          class={`carousel-dot rounded-full transition-all duration-300 ${i === 0 ? 'w-6 h-2 bg-[#1B3461]' : 'w-2 h-2 hover:bg-[rgba(0,0,0,0.2)]'}`}
           style={i !== 0 ? 'background:rgba(0,0,0,0.12);' : ''}
           data-index={i}
           aria-label={`Ir a slide ${i + 1}`}
@@ -207,7 +207,7 @@ const slides = [
       <button id="carousel-next" class="w-10 h-10 rounded-xl border bg-white hover:bg-[#F8FAFC] hover:border-[rgba(0,0,0,0.18)] flex items-center justify-center transition-all text-[#374151]" style="border-color:rgba(0,0,0,0.1);" aria-label="Siguiente">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
       </button>
-      <a href="/diagnostico/" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#6366F1] hover:bg-[#4F46E5] text-white font-semibold transition-all hover:shadow-[0_6px_20px_rgba(99,102,241,0.3)] hover:-translate-y-0.5 text-sm">
+      <a href="/diagnostico/" class="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1B3461] hover:bg-[#132848] text-white font-semibold transition-all hover:shadow-[0_6px_20px_rgba(27,52,97,0.35)] hover:-translate-y-0.5 text-sm">
         Construir el tuyo
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -236,7 +236,7 @@ const slides = [
     dotsEl?.querySelectorAll<HTMLElement>('.carousel-dot').forEach((dot, i) => {
       dot.classList.toggle('w-6',  i === current);
       dot.classList.toggle('w-2',  i !== current);
-      dot.style.background = i === current ? '#6366F1' : 'rgba(0,0,0,0.12)';
+      dot.style.background = i === current ? '#1B3461' : 'rgba(0,0,0,0.12)';
     });
   }
 
@@ -270,7 +270,7 @@ const slides = [
   carousel.addEventListener('mouseleave', () => { autoTimer = setInterval(() => scrollTo(current + 1 < total ? current + 1 : 0), 5000); });
 
   document.querySelectorAll<HTMLElement>('#mockup-carousel .commercial-card').forEach((card) => {
-    const accent = card.dataset.accent || 'rgba(99,102,241,0.12)';
+    const accent = card.dataset.accent || 'rgba(27,52,97,0.12)';
     card.addEventListener('mouseenter', () => { card.style.boxShadow = `0 20px 60px ${accent}, 0 1px 3px rgba(0,0,0,0.04)`; });
     card.addEventListener('mouseleave', () => { card.style.boxShadow = ''; });
   });

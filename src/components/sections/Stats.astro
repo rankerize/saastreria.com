@@ -1,0 +1,64 @@
+---
+const stats = [
+  {
+    value: '+12',
+    label: 'sistemas en producción',
+    sub: 'Colombia y LATAM',
+    icon: `<path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke-linecap="round" stroke-linejoin="round"/>`,
+    color: '#1B3461',
+  },
+  {
+    value: '94%',
+    label: 'eficiencia operativa',
+    sub: 'media en clientes activos',
+    icon: `<polyline points="22 7 13.5 15.5 8.5 10.5 2 17" stroke-linecap="round" stroke-linejoin="round"/><polyline points="16 7 22 7 22 13" stroke-linecap="round" stroke-linejoin="round"/>`,
+    color: '#10B981',
+  },
+  {
+    value: '100%',
+    label: 'código es tuyo',
+    sub: 'sin lock-in ni dependencias',
+    icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>`,
+    color: '#BFA255',
+  },
+  {
+    value: '30 min',
+    label: 'diagnóstico gratuito',
+    sub: 'sin compromiso, hoy mismo',
+    icon: `<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14" stroke-linecap="round" stroke-linejoin="round"/>`,
+    color: '#F59E0B',
+  },
+];
+---
+
+<section class="py-14 px-6 border-b" style="background:#FFFFFF;border-color:rgba(0,0,0,0.06);">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-0">
+      {stats.map((s, i) => (
+        <div class={`flex flex-col items-center text-center px-6 py-4 scroll-reveal ${i < stats.length - 1 ? 'border-r' : ''} ${i >= 2 ? 'mt-8 md:mt-0' : ''}`}
+             style={`transition-delay:${i * 0.07}s;border-color:rgba(0,0,0,0.07);`}>
+          <!-- Icon -->
+          <div class="w-9 h-9 rounded-xl flex items-center justify-center mb-3"
+               style={`background:${s.color}0D;border:1px solid ${s.color}20;`}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke={s.color} stroke-width="1.8" set:html={s.icon}/>
+          </div>
+          <!-- Value -->
+          <span class="text-3xl font-extrabold leading-none mb-1.5"
+                style={`font-family:'Plus Jakarta Sans',sans-serif;color:${s.color};`}>
+            {s.value}
+          </span>
+          <!-- Label -->
+          <span class="text-sm font-semibold text-[#0F0F1A] leading-snug mb-0.5"
+                style="font-family:'Plus Jakarta Sans',sans-serif;">
+            {s.label}
+          </span>
+          <!-- Sub -->
+          <span class="text-xs text-[#94A3B8] leading-snug">{s.sub}</span>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

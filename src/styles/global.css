@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
@@ -14,9 +14,10 @@ html { scroll-behavior: smooth; }
   --text:         #111827;
   --text-muted:   #374151;
   --text-subtle:  #6B7280;
-  --primary:      #6366F1;
-  --primary-hover:#4F46E5;
-  --accent:       #F59E0B;
+  --primary:      #1B3461;
+  --primary-hover:#132848;
+  --accent:       #BFA255;
+  --accent-hover: #A88840;
 }
 
 body {
@@ -30,7 +31,7 @@ body {
 a, button { touch-action: manipulation; }
 
 :focus-visible {
-  outline: 3px solid rgba(99,102,241,.7);
+  outline: 3px solid rgba(27,52,97,.7);
   outline-offset: 3px;
 }
 
@@ -56,8 +57,8 @@ h1,h2,h3,h4,h5,h6 { font-family: 'Plus Jakarta Sans', sans-serif; }
   font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;
   transition: background .2s ease, box-shadow .2s ease, transform .2s ease, border-color .2s ease, color .2s ease;
 }
-.btn-primary { background: #6366F1; color: white; }
-.btn-primary:hover { background: #4F46E5; box-shadow: 0 8px 24px rgba(99,102,241,.3); transform: translateY(-1px); }
+.btn-primary { background: #1B3461; color: white; }
+.btn-primary:hover { background: #132848; box-shadow: 0 8px 24px rgba(27,52,97,.35); transform: translateY(-1px); }
 .btn-secondary { border: 1.5px solid rgba(0,0,0,.12); color: #374151; background: white; }
 .btn-secondary:hover { border-color: rgba(0,0,0,.22); color: #0F0F1A; background: #F8FAFC; }
 
@@ -67,14 +68,14 @@ h1,h2,h3,h4,h5,h6 { font-family: 'Plus Jakarta Sans', sans-serif; }
 /* ── Eyebrow badge ── */
 .eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
-  border: 1px solid rgba(99,102,241,.2);
-  background: rgba(99,102,241,.06);
-  color: #6366F1;
+  border: 1px solid rgba(27,52,97,.2);
+  background: rgba(27,52,97,.06);
+  color: #1B3461;
   border-radius: 999px; padding: 6px 14px; font-size: .75rem; font-weight: 700;
 }
 .eyebrow::before {
   content: ''; width: 6px; height: 6px; border-radius: 50%;
-  background: #6366F1; box-shadow: 0 0 8px rgba(99,102,241,.6);
+  background: #BFA255; box-shadow: 0 0 8px rgba(191,162,85,.6);
 }
 
 /* ── Cards ── */
@@ -92,8 +93,8 @@ h1,h2,h3,h4,h5,h6 { font-family: 'Plus Jakarta Sans', sans-serif; }
   box-shadow: 0 2px 8px rgba(0,0,0,0.07), 0 8px 28px rgba(0,0,0,0.05);
 }
 .commercial-card:hover {
-  border-color: rgba(99,102,241,.3);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1), 0 16px 48px rgba(99,102,241,0.08);
+  border-color: rgba(27,52,97,.22);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1), 0 16px 48px rgba(27,52,97,0.08);
 }
 
 /* ── Footer ── */
@@ -104,7 +105,7 @@ h1,h2,h3,h4,h5,h6 { font-family: 'Plus Jakarta Sans', sans-serif; }
 
 /* ── Gradient text ── */
 .gradient-text {
-  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #C084FC 100%);
+  background: linear-gradient(135deg, #1B3461 0%, #2563EB 45%, #BFA255 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 
@@ -153,7 +154,7 @@ h1,h2,h3,h4,h5,h6 { font-family: 'Plus Jakarta Sans', sans-serif; }
 /* ── Scroll progress ── */
 #scroll-progress {
   position: fixed; top: 0; left: 0; height: 2px;
-  background: linear-gradient(90deg, #6366F1 0%, #8B5CF6 50%, #C084FC 100%);
+  background: linear-gradient(90deg, #1B3461 0%, #2563EB 50%, #BFA255 100%);
   z-index: 9999; transform-origin: left; transform: scaleX(0);
   transition: transform 0.08s linear; pointer-events: none;
 }

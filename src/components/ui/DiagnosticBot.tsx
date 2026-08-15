@@ -179,7 +179,7 @@ export default function DiagnosticBot() {
       const numero = String(data.whatsapp_numero || '').replace(/\D/g, '');
       const whatsapp = numero && code ? `https://wa.me/${code}${numero}` : numero;
 
-      const payload = { ...data, whatsapp };
+      const payload = { ...data, whatsapp, fuente: 'bot' };
       delete payload.pais_codigo;
       delete payload.whatsapp_numero;
 
@@ -246,7 +246,7 @@ export default function DiagnosticBot() {
         onClick={() => setOpen(true)}
         data-bot
         aria-label="Abrir asistente de diagnóstico"
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-3 min-w-12 min-h-12 px-3.5 sm:px-5 rounded-2xl bg-[#6366F1] hover:bg-[#4F46E5] text-white font-semibold shadow-[0_0_30px_rgba(99,102,241,0.4)] transition-colors"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-3 min-w-12 min-h-12 px-3.5 sm:px-5 rounded-2xl bg-[#1B3461] hover:bg-[#132848] text-white font-semibold shadow-[0_0_30px_rgba(27,52,97,0.35)] transition-colors"
         style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
       >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -265,8 +265,8 @@ export default function DiagnosticBot() {
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-white/5 bg-[#0A0A0F]">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-[#6366F1]/20 border border-[#6366F1]/30 flex items-center justify-center">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6366F1" strokeWidth="2">
+          <div className="w-8 h-8 rounded-full bg-[#1B3461]/20 border border-[#1B3461]/30 flex items-center justify-center">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1B3461" strokeWidth="2">
               <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
             </svg>
           </div>
@@ -291,7 +291,7 @@ export default function DiagnosticBot() {
           <div key={i} className={`flex ${m.from === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed whitespace-pre-line ${
               m.from === 'user'
-                ? 'bg-[#6366F1] text-white rounded-br-sm'
+                ? 'bg-[#1B3461] text-white rounded-br-sm'
                 : 'bg-white/5 text-[#E2E8F0] rounded-bl-sm'
             }`}>
               {m.text}
@@ -335,12 +335,12 @@ export default function DiagnosticBot() {
                 onKeyDown={e => e.key === 'Enter' && handleText()}
                 placeholder={currentStep.type === 'email' ? 'tu@empresa.com' : currentStep.type === 'tel' ? '+57 300 000 0000' : 'Escribe tu respuesta...'}
                 aria-label="Escribe tu respuesta"
-                className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-[#475569] outline-none focus:border-[#6366F1]/50 transition-colors"
+                className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-[#475569] outline-none focus:border-[#1B3461]/50 transition-colors"
               />
               <button
                 onClick={handleText}
                 aria-label="Enviar respuesta"
-                className="w-11 h-11 rounded-xl bg-[#6366F1] hover:bg-[#4F46E5] flex items-center justify-center transition-colors flex-shrink-0"
+                className="w-11 h-11 rounded-xl bg-[#1B3461] hover:bg-[#132848] flex items-center justify-center transition-colors flex-shrink-0"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -355,7 +355,7 @@ export default function DiagnosticBot() {
                 <button
                   key={opt}
                   onClick={() => handleOption(opt)}
-                  className="text-left px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-[#94A3B8] hover:bg-[#6366F1]/10 hover:border-[#6366F1]/30 hover:text-white transition-all"
+                  className="text-left px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-[#94A3B8] hover:bg-[#1B3461]/10 hover:border-[#1B3461]/30 hover:text-white transition-all"
                 >
                   {opt}
                 </button>
@@ -372,11 +372,11 @@ export default function DiagnosticBot() {
                     onClick={() => toggleMulti(opt)}
                     className={`text-left px-3 py-2 rounded-xl border text-xs transition-all flex items-center gap-2 ${
                       selected.includes(opt)
-                        ? 'bg-[#6366F1]/10 border-[#6366F1]/40 text-white'
+                        ? 'bg-[#1B3461]/10 border-[#1B3461]/40 text-white'
                         : 'bg-white/5 border-white/10 text-[#94A3B8]'
                     }`}
                   >
-                    <span className={`w-3.5 h-3.5 rounded border flex-shrink-0 flex items-center justify-center ${selected.includes(opt) ? 'bg-[#6366F1] border-[#6366F1]' : 'border-white/20'}`}>
+                    <span className={`w-3.5 h-3.5 rounded border flex-shrink-0 flex items-center justify-center ${selected.includes(opt) ? 'bg-[#1B3461] border-[#1B3461]' : 'border-white/20'}`}>
                       {selected.includes(opt) && (
                         <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3">
                           <path d="M20 6L9 17l-5-5"/>
@@ -390,7 +390,7 @@ export default function DiagnosticBot() {
               {selected.length > 0 && (
                 <button
                   onClick={confirmMulti}
-                  className="w-full py-2 rounded-xl bg-[#6366F1] hover:bg-[#4F46E5] text-white text-xs font-medium transition-colors"
+                  className="w-full py-2 rounded-xl bg-[#1B3461] hover:bg-[#132848] text-white text-xs font-medium transition-colors"
                 >
                   Confirmar ({selected.length} seleccionado{selected.length > 1 ? 's' : ''})
                 </button>
